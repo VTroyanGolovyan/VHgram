@@ -6,42 +6,17 @@
 //
 
 import Foundation
+import UIKit
 
 class ChatsModel {
-    var chats = [
-        ["name": "Vladislav Troyan",
-         "last": "Hello, friend",
-         "date": "30.10.2022 18:00",
-         "new":"3"],
-        ["name": "Vitaliy Memesovich",
-         "last": "Goodbye, friend",
-         "date": "30.10.2022 18:00",
-         "new":"1"],
-        ["name": "Vladislav Troyan",
-         "last": "Lol kek cheburek",
-         "date": "30.10.2022 18:00",
-         "new":"3"],
-        ["name": "Valentin strykalo",
-         "last": "Hello, friend",
-         "date": "30.10.2022 18:00",
-         "new":"3"],
-        ["name": "Vladislav Troyan",
-         "last": "Hello, friend",
-         "date": "30.10.2022 18:00",
-         "new":"2"],
-        ["name": "Vladislav Troyan",
-         "last": "Hello, friend",
-         "date": "30.10.2022 18:00",
-         "new":"3"],
-        ["name": "Vladislav Troyan",
-         "last": "Hello, friend",
-         "date": "30.10.2022 18:00",
-         "new":"5"],
-        ["name": "Vladislav Troyan",
-         "last": "MAMAMA, friend",
-         "date": "30.10.2022 18:00",
-         "new":"3"]
+    var chatsViewDelegate:UITableView?
+    
+    var chats:[[String:String]] = [
     ]
+    
+    public init() {
+        NetworkLayer.sendAuthorizedPOSTRequest(module: "getuserdialogs", getParams: [:], body: [:], complition: chatsRequestCallback)
+    }
     
     func Count() -> Int {
         return chats.count
@@ -49,5 +24,26 @@ class ChatsModel {
     
     func GetChat(index: Int) -> Dictionary<String, String> {
         return chats[index]
+    }
+    
+    private func chatsRequestCallback(response: Any) {
+        let chatsArray = response as? [[String:Any]]
+        var chatsArrayData: [[String:String]] = []
+        for chat in chatsArray! {
+            var new_dict: [String:String] = [:]
+            for (key, value) in chat {
+                new_dict[key] = value as? String
+                if new_dict[key] == nil {
+                    new_dict[key] =  String(value as? Int ?? 0)
+                }
+            }
+            chatsArrayData.append(new_dict)
+        }
+        chats = chatsArrayData
+        if chatsViewDelegate != nil {
+            DispatchQueue.main.async { [self] in
+                chatsViewDelegate?.reloadData()
+            }
+        }
     }
 }

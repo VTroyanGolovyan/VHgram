@@ -1,15 +1,8 @@
-//
-//  ChatsTableViewController.swift
-//  VHgram
-//
-//  Created by Владислав on 13.04.2022.
-//
-
 import UIKit
 
-class ChatsTableViewController: UITableViewController {
+class ContactsTableViewController: UITableViewController {
     
-    var dataModel = ChatsModel()
+    var dataModel = ContactsModel()
     
     override func viewDidLoad() {
        
@@ -23,9 +16,9 @@ class ChatsTableViewController: UITableViewController {
         //self.view = tableView
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: ChatTableViewCell.reuseId, bundle: nil), forCellReuseIdentifier: ChatTableViewCell.reuseId)
-        dataModel.chatsViewDelegate = tableView
-        self.navigationItem.title = "Chats"
+        tableView.register(UINib(nibName: ContactsTableViewCell.reuseId, bundle: nil), forCellReuseIdentifier: ContactsTableViewCell.reuseId)
+        dataModel.contactsViewDelegate = tableView
+        self.navigationItem.title = "Contacts"
     }
 
     // MARK: - Table view data source
@@ -41,11 +34,8 @@ class ChatsTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ChatTableViewCell.reuseId, for: indexPath) as! ChatTableViewCell
-        cell.fillCell(chat: dataModel.GetChat(index: indexPath.row))
-        if cell.newMsg.text == "0" {
-            cell.newMsg.isHidden = true
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: ContactsTableViewCell.reuseId, for: indexPath) as! ContactsTableViewCell
+        cell.fillCell(contact: dataModel.GetContact(index: indexPath.row))
         return cell
     }
     
@@ -66,7 +56,7 @@ class ChatsTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     */
 

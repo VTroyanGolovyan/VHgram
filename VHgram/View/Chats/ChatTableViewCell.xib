@@ -37,7 +37,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hre-6U-uCy">
-                        <rect key="frame" x="317" y="8" width="21" height="21"/>
+                        <rect key="frame" x="316" y="8" width="22" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.59607845540000004" green="0.14509806040000001" blue="0.11372549830000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <accessibility key="accessibilityConfiguration" identifier="newMessages"/>
@@ -60,6 +60,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="date" destination="IJx-bP-Xqi" id="ewJ-18-AdF"/>
+                <outlet property="img" destination="gYv-qE-1JR" id="2jW-jy-3sf"/>
                 <outlet property="lastMsg" destination="Ukv-jK-pEq" id="yTJ-to-jxn"/>
                 <outlet property="name" destination="hRz-e8-IWP" id="pE1-pw-jpG"/>
                 <outlet property="newMsg" destination="hre-6U-uCy" id="sYP-No-6Et"/>

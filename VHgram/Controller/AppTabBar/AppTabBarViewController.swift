@@ -10,10 +10,9 @@ import UIKit
 class AppTabBarViewController: UITabBarController {
     
     
-    var chatsTableViewController: UITableViewController!
-    var contactsTableViewController: UIViewController!
+    var chatsTableViewController: UITableViewController = ChatsTableViewController()
+    var contactsTableViewController: UIViewController = ContactsTableViewController()
     
-    var dataModel = ChatsModel()
     
     static func storyBoardInstance() -> AppTabBarViewController? {
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppTabBarViewController") as? AppTabBarViewController
@@ -22,14 +21,15 @@ class AppTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        chatsTableViewController = ChatsTableViewController()
         chatsTableViewController.title="✉️"
-        contactsTableViewController = UIViewController()
         contactsTableViewController.title="📔"
         let settings = UIViewController()
         settings.title="⚙️"
-        
-        setViewControllers([UINavigationController(rootViewController: chatsTableViewController), UINavigationController(rootViewController: contactsTableViewController), UINavigationController(rootViewController:  settings)], animated: true)
+        let profile = UIViewController()
+        profile.title = "👤"
+        let news = UIViewController()
+        news.title = "📰"
+        setViewControllers([chatsTableViewController, news, contactsTableViewController, profile, settings], animated: true)
         
         UITabBar.appearance().backgroundColor = .white
         UITabBar.appearance().tintColor = .black
@@ -39,8 +39,8 @@ class AppTabBarViewController: UITabBarController {
        // self.view.addSubview(tableView)
        // tableView.delegate = self
        // tableView.dataSource = self
-
-       // tableView.register(UINib(nibName: ChatTableViewCell.reuseId, bundle: nil), forCellReuseIdentifier: ChatTableViewCell.reuseId)
+        
+        //tableView.register(UINib(nibName: ChatTableViewCell.reuseId, bundle: nil), forCellReuseIdentifier: ChatTableViewCell.reuseId)
     }
     
 

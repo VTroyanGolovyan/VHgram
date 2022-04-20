@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA66A5C5280FC60700C7D9F7 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA66A5C3280FC60700C7D9F7 /* ChatViewController.swift */; };
+		AA66A5C6280FC60700C7D9F7 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA66A5C4280FC60700C7D9F7 /* ChatViewController.xib */; };
+		AA66A5C8280FC81E00C7D9F7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA66A5C7280FC81E00C7D9F7 /* SettingsViewController.swift */; };
 		AA71CF54280EECA600A9907E /* ContactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA71CF53280EECA600A9907E /* ContactsModel.swift */; };
 		AA71CF56280EECB100A9907E /* DialogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA71CF55280EECB100A9907E /* DialogModel.swift */; };
 		AA71CF58280EEDC800A9907E /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA71CF57280EEDC800A9907E /* AuthModel.swift */; };
@@ -16,6 +19,10 @@
 		AA8DC6DB280639960036FCDE /* ChatsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8DC6DA280639960036FCDE /* ChatsModel.swift */; };
 		AA8DC6E628076FBF0036FCDE /* AppTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8DC6E528076FBF0036FCDE /* AppTabBarViewController.swift */; };
 		AA8DC6E9280770580036FCDE /* ChatsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8DC6E8280770580036FCDE /* ChatsTableViewController.swift */; };
+		AAC33E9F280F42A600C4C7CD /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC33E9E280F42A600C4C7CD /* ContactsView.swift */; };
+		AAC33EAC280FBE6400C4C7CD /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC33EAB280FBE6400C4C7CD /* ContactsTableViewController.swift */; };
+		AAC33EAE280FBF1B00C4C7CD /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC33EAD280FBF1B00C4C7CD /* ContactsTableViewCell.swift */; };
+		AAC33EB0280FBF5F00C4C7CD /* ContactsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAC33EAF280FBF5F00C4C7CD /* ContactsTableViewCell.xib */; };
 		AAC35B0328024572007ABDBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC35B0228024572007ABDBE /* AppDelegate.swift */; };
 		AAC35B0528024572007ABDBE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC35B0428024572007ABDBE /* SceneDelegate.swift */; };
 		AAC35B0A28024572007ABDBE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAC35B0828024572007ABDBE /* Main.storyboard */; };
@@ -47,6 +54,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA66A5C3280FC60700C7D9F7 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		AA66A5C4280FC60700C7D9F7 /* ChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
+		AA66A5C7280FC81E00C7D9F7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AA71CF53280EECA600A9907E /* ContactsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsModel.swift; sourceTree = "<group>"; };
 		AA71CF55280EECB100A9907E /* DialogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogModel.swift; sourceTree = "<group>"; };
 		AA71CF57280EEDC800A9907E /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
@@ -56,6 +66,10 @@
 		AA8DC6DA280639960036FCDE /* ChatsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsModel.swift; sourceTree = "<group>"; };
 		AA8DC6E528076FBF0036FCDE /* AppTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarViewController.swift; sourceTree = "<group>"; };
 		AA8DC6E8280770580036FCDE /* ChatsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsTableViewController.swift; sourceTree = "<group>"; };
+		AAC33E9E280F42A600C4C7CD /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
+		AAC33EAB280FBE6400C4C7CD /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContactsTableViewController.swift; path = VHgram/Model/ContactsTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		AAC33EAD280FBF1B00C4C7CD /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactsTableViewCell.swift; path = VHgram/View/Contacts/ContactsTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		AAC33EAF280FBF5F00C4C7CD /* ContactsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ContactsTableViewCell.xib; path = VHgram/View/Contacts/ContactsTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		AAC35AFF28024572007ABDBE /* VHgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VHgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC35B0228024572007ABDBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAC35B0428024572007ABDBE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +123,7 @@
 		AA50D11A2807799700B62425 /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
+				AAC33EAB280FBE6400C4C7CD /* ContactsTableViewController.swift */,
 			);
 			path = Contacts;
 			sourceTree = "<group>";
@@ -118,6 +133,15 @@
 			children = (
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		AA66A5C2280FC5D600C7D9F7 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				AA66A5C3280FC60700C7D9F7 /* ChatViewController.swift */,
+				AA66A5C4280FC60700C7D9F7 /* ChatViewController.xib */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		AA71CF59280EEE4800A9907E /* Network */ = {
@@ -137,20 +161,6 @@
 			path = Chats;
 			sourceTree = "<group>";
 		};
-		AA8B44B2280280B600F33637 /* chat */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = chat;
-			sourceTree = "<group>";
-		};
-		AA8B44B3280280C100F33637 /* profile */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = profile;
-			sourceTree = "<group>";
-		};
 		AA8DC6CB280621730036FCDE /* AppTabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +170,15 @@
 				AA8DC6E528076FBF0036FCDE /* AppTabBarViewController.swift */,
 			);
 			path = AppTabBar;
+			sourceTree = "<group>";
+		};
+		AAC33E95280F41E200C4C7CD /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				AAC33EAF280FBF5F00C4C7CD /* ContactsTableViewCell.xib */,
+				AAC33EAD280FBF1B00C4C7CD /* ContactsTableViewCell.swift */,
+			);
+			path = Contacts;
 			sourceTree = "<group>";
 		};
 		AAC35AF628024572007ABDBE = {
@@ -219,8 +238,10 @@
 		AAC35B3228024779007ABDBE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				AA66A5C2280FC5D600C7D9F7 /* Chat */,
 				AA8DC6CB280621730036FCDE /* AppTabBar */,
 				AAC35B3728024810007ABDBE /* Login */,
+				AA66A5C7280FC81E00C7D9F7 /* SettingsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -228,10 +249,10 @@
 		AAC35B3328024783007ABDBE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AA8B44B3280280C100F33637 /* profile */,
-				AA8B44B2280280B600F33637 /* chat */,
+				AAC33E95280F41E200C4C7CD /* Contacts */,
 				AA8B44B1280280A800F33637 /* Chats */,
 				AAC35B3828024DE6007ABDBE /* Slide */,
+				AAC33E9E280F42A600C4C7CD /* ContactsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -369,6 +390,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAC35B3C28024E69007ABDBE /* SlideCollectionViewCell.xib in Resources */,
+				AAC33EB0280FBF5F00C4C7CD /* ContactsTableViewCell.xib in Resources */,
+				AA66A5C6280FC60700C7D9F7 /* ChatViewController.xib in Resources */,
 				AAC35B0F28024573007ABDBE /* LaunchScreen.storyboard in Resources */,
 				AA8DC6D5280621F50036FCDE /* ChatTableViewCell.xib in Resources */,
 				AAC35B0C28024573007ABDBE /* Assets.xcassets in Resources */,
@@ -399,16 +422,21 @@
 			files = (
 				AA71CF5B280EEE5500A9907E /* NetworkLayer.swift in Sources */,
 				AAC35B3628024807007ABDBE /* LoginViewController.swift in Sources */,
+				AA66A5C5280FC60700C7D9F7 /* ChatViewController.swift in Sources */,
 				AA71CF56280EECB100A9907E /* DialogModel.swift in Sources */,
 				AA71CF54280EECA600A9907E /* ContactsModel.swift in Sources */,
 				AAC35B0328024572007ABDBE /* AppDelegate.swift in Sources */,
 				AAC35B0528024572007ABDBE /* SceneDelegate.swift in Sources */,
+				AAC33EAC280FBE6400C4C7CD /* ContactsTableViewController.swift in Sources */,
 				AA8DC6DB280639960036FCDE /* ChatsModel.swift in Sources */,
 				AA8DC6E628076FBF0036FCDE /* AppTabBarViewController.swift in Sources */,
 				AA8DC6D4280621F50036FCDE /* ChatTableViewCell.swift in Sources */,
 				AAC35B3B28024E69007ABDBE /* SlideCollectionViewCell.swift in Sources */,
+				AA66A5C8280FC81E00C7D9F7 /* SettingsViewController.swift in Sources */,
 				AA8DC6E9280770580036FCDE /* ChatsTableViewController.swift in Sources */,
+				AAC33EAE280FBF1B00C4C7CD /* ContactsTableViewCell.swift in Sources */,
 				AA71CF58280EEDC800A9907E /* AuthModel.swift in Sources */,
+				AAC33E9F280F42A600C4C7CD /* ContactsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

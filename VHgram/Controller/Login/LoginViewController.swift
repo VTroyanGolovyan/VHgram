@@ -18,7 +18,6 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configCollectionView()
-        // Do any additional setup after loading the view.
     }
     
 
@@ -38,7 +37,6 @@ class LoginViewController: UIViewController {
             UINib(nibName: SlideCollectionViewCell.reuseId, bundle: nil),
             forCellWithReuseIdentifier: SlideCollectionViewCell.reuseId)
         self.navigationItem.title = "Login"
-        
     }
 
 }
@@ -67,6 +65,7 @@ extension LoginViewController: LoginViewControllerDelegate {
         var app = AppTabBarViewController.storyBoardInstance()
         if app != nil {
             self.view.insertSubview((app?.view)!, at: 1)
+            UIApplication.shared.windows.first?.rootViewController = app
         }
         
     }

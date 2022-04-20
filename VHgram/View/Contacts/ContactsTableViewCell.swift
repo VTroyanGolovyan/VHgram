@@ -7,17 +7,16 @@
 
 import UIKit
 
-class ChatTableViewCell: UITableViewCell {
+class ContactsTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var lastMsg: UILabel!
-    @IBOutlet weak var date: UILabel!
-    @IBOutlet weak var newMsg: UILabel!
+    
     @IBOutlet weak var img: UIImageView!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var status: UILabel!
     
     var imgageUrl = ""
     
-    static let reuseId = "ChatTableViewCell"
+    static let reuseId = "ContactsTableViewCell"
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,12 +29,11 @@ class ChatTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func fillCell(chat: Dictionary<String, String>) {
-        name.text = chat["dialog_name"]
-        lastMsg.text = chat["last_msg"]
-        newMsg.text = chat["unread"]
-        imgageUrl = chat["dialog_img"] ?? ""
-        date.text = ""
+    func fillCell(contact: Dictionary<String, String>) {
+        name.text = contact["name"]! + " " + contact["second_name"]!
+        status.text = contact["status"]
+        imgageUrl = contact["avatar"] ?? ""
+
         NetworkLayer.loadImage(relativePath: imgageUrl, img: self.img)
     }
     
@@ -51,7 +49,5 @@ class ChatTableViewCell: UITableViewCell {
         self.layer.borderColor = UIColor.lightGray.cgColor
         self.img.layer.cornerRadius = self.img.frame.size.width / 2
         self.img.layer.masksToBounds = true
-        self.newMsg.layer.cornerRadius = 5
-        self.newMsg.layer.masksToBounds = true
     }
 }

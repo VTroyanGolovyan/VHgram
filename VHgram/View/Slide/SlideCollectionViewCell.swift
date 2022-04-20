@@ -16,10 +16,12 @@ class SlideCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var password: UITextField!
     
     @IBAction func signIn(_ sender: UIButton) {
-        var login = self.email.text
-        var password = self.password.text
-        print(login, password)
-        delegate?.switchAppController()
+        let login = self.email.text
+        let password = self.password.text
+        if (login != nil && password != nil) {
+            AuthModel.loginDelegate = delegate
+            AuthModel.signIn(login: login!, password: password!)
+        }
     }
     
     
