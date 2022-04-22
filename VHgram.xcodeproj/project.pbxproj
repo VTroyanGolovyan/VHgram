@@ -14,6 +14,7 @@
 		AA264C812812385F0014CA3B /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA264C7F2812385F0014CA3B /* SettingsViewController.xib */; };
 		AA264C84281259BC0014CA3B /* SignUpCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA264C82281259BC0014CA3B /* SignUpCollectionViewCell.swift */; };
 		AA264C8728125A140014CA3B /* SignUpCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA264C8628125A140014CA3B /* SignUpCollectionViewCell.xib */; };
+		AA264C8C2812E0250014CA3B /* CollectionsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA264C8B2812E0250014CA3B /* CollectionsExtensions.swift */; };
 		AA66A5C5280FC60700C7D9F7 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA66A5C3280FC60700C7D9F7 /* ChatViewController.swift */; };
 		AA66A5CA280FD04600C7D9F7 /* Polling.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA66A5C9280FD04600C7D9F7 /* Polling.swift */; };
 		AA71CF54280EECA600A9907E /* ContactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA71CF53280EECA600A9907E /* ContactsModel.swift */; };
@@ -67,6 +68,7 @@
 		AA264C7F2812385F0014CA3B /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SettingsViewController.xib; path = VHgram/Model/SettingsViewController.xib; sourceTree = SOURCE_ROOT; };
 		AA264C82281259BC0014CA3B /* SignUpCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCollectionViewCell.swift; sourceTree = "<group>"; };
 		AA264C8628125A140014CA3B /* SignUpCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpCollectionViewCell.xib; sourceTree = "<group>"; };
+		AA264C8B2812E0250014CA3B /* CollectionsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsExtensions.swift; sourceTree = "<group>"; };
 		AA66A5C3280FC60700C7D9F7 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		AA66A5C9280FD04600C7D9F7 /* Polling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Polling.swift; sourceTree = "<group>"; };
 		AA71CF53280EECA600A9907E /* ContactsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsModel.swift; sourceTree = "<group>"; };
@@ -131,6 +133,14 @@
 				AA264C7928122E8B0014CA3B /* ProfileViewController.xib */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		AA264C882812DF0B0014CA3B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				AA264C8B2812E0250014CA3B /* CollectionsExtensions.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		AA50D1192807797A00B62425 /* Chats */ = {
@@ -228,6 +238,7 @@
 		AAC35B0128024572007ABDBE /* VHgram */ = {
 			isa = PBXGroup;
 			children = (
+				AA264C882812DF0B0014CA3B /* Utils */,
 				AA71CF59280EEE4800A9907E /* Network */,
 				AAC35B342802478E007ABDBE /* Model */,
 				AAC35B3328024783007ABDBE /* View */,
@@ -465,6 +476,7 @@
 				AAC35B3B28024E69007ABDBE /* SlideCollectionViewCell.swift in Sources */,
 				AA8DC6E9280770580036FCDE /* ChatsTableViewController.swift in Sources */,
 				AA264C7D281230D70014CA3B /* ProfileModel.swift in Sources */,
+				AA264C8C2812E0250014CA3B /* CollectionsExtensions.swift in Sources */,
 				AAC33EAE280FBF1B00C4C7CD /* ContactsTableViewCell.swift in Sources */,
 				AA71CF58280EEDC800A9907E /* AuthModel.swift in Sources */,
 				AAC33E9F280F42A600C4C7CD /* ContactsView.swift in Sources */,

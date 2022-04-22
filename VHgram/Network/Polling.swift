@@ -33,23 +33,13 @@ class PollingWorker {
     }
     
     public static func eventPerformer(events: Any) {
-        let eventsArray = events as? [[String:Any]]
-        var eventsArrayData: [[String:String]] = []
-        for event in eventsArray! {
-            var new_dict: [String:String] = [:]
-            for (key, value) in event {
-                new_dict[key] = value as? String
-                if new_dict[key] == nil {
-                    new_dict[key] =  String(value as? Int ?? 0)
-                }
-            }
-            eventsArrayData.append(new_dict)
-        }
-        for event in eventsArrayData {
-            if let e_type = event["type"] {
-                if let list = followers[e_type] {
-                    for follower in list {
-                        follower.eventHandle(event: event)
+        if let eventsArray = (events as? [[String:Any]])?.getStringsDictArray() {
+            for event in eventsArray {
+                if let e_type = event["type"] {
+                    if let list = followers[e_type] {
+                        for follower in list {
+                            follower.eventHandle(event: event)
+                        }
                     }
                 }
             }
@@ -64,3 +54,5 @@ class PollingWorker {
         }
     }
 }
+
+

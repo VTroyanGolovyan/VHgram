@@ -40,22 +40,13 @@ class ContactsModel {
     }
     
     private func chatsRequestCallback(response: Any) {
-        let Array = response as? [[String:Any]]
-        var ArrayData: [[String:String]] = []
-        for chat in Array! {
-            var new_dict: [String:String] = [:]
-            for (key, value) in chat {
-                new_dict[key] = value as? String
-                if new_dict[key] == nil {
-                    new_dict[key] =  String(value as? Int ?? 0)
+        let array = response as? [[String:Any]]
+        if let arrayData = array?.getStringsDictArray() {
+            contacts = arrayData
+            if contactsViewDelegate != nil {
+                DispatchQueue.main.async { [self] in
+                    contactsViewDelegate?.reloadData()
                 }
-            }
-            ArrayData.append(new_dict)
-        }
-        contacts = ArrayData
-        if contactsViewDelegate != nil {
-            DispatchQueue.main.async { [self] in
-                contactsViewDelegate?.reloadData()
             }
         }
     }
