@@ -14,6 +14,9 @@ class ContactsModel {
     var contacts:[[String:String]] = [
     ]
     
+    var filtered:[[String:String]] = [
+    ]
+    
     public init() {
         refetchData()
     }
@@ -22,8 +25,34 @@ class ContactsModel {
         return contacts.count
     }
     
+    func filteredCount() -> Int {
+        return filtered.count
+    }
+    
+    func filter(search: String) {
+        var result: [[String:String]] = []
+        if search.isEmpty {
+            filtered = contacts
+            contactsViewDelegate?.reloadData()
+            return
+        }
+        for contact in contacts {
+            if contact["name"]!.contains(search) {
+                result.append(contact)
+            }
+        }
+        if !result.isEmpty {
+            filtered = result
+        }
+        contactsViewDelegate?.reloadData()
+    }
+    
     func GetContact(index: Int) -> Dictionary<String, String> {
         return contacts[index]
+    }
+    
+    func filteredContact(index: Int) -> Dictionary<String, String> {
+        return filtered[index]
     }
     
     func refetchData() {

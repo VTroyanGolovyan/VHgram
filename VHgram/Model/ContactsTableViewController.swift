@@ -1,6 +1,8 @@
 import UIKit
 
-class ContactsTableViewController: UITableViewController {
+class ContactsTableViewController: UITableViewController,  UISearchResultsUpdating {
+    
+    var resultSearchController = UISearchController()
     
     var dataModel = ContactsModel()
     
@@ -13,7 +15,6 @@ class ContactsTableViewController: UITableViewController {
         tableView.rowHeight = 80
         
         tableView.separatorInset =  UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        //self.view = tableView
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: ContactsTableViewCell.reuseId, bundle: nil), forCellReuseIdentifier: ContactsTableViewCell.reuseId)
@@ -21,6 +22,22 @@ class ContactsTableViewController: UITableViewController {
         self.navigationItem.title = "Contacts"
         self.navigationController?.navigationBar.backgroundColor = UIColor.darkGray
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        
+        resultSearchController = ({
+                let controller = UISearchController(searchResultsController: nil)
+                controller.searchResultsUpdater = self
+                controller.dimsBackgroundDuringPresentation = false
+                controller.searchBar.sizeToFit()
+
+                tableView.tableHeaderView = controller.searchBar
+
+                return controller
+            })()
+
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        dataModel.filter(search: searchController.searchBar.text!)
     }
 
     // MARK: - Table view data source
@@ -30,14 +47,21 @@ class ContactsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
+        if  (resultSearchController.isActive) {
+            return self.dataModel.filteredCount()
+        }
         return self.dataModel.Count()
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ContactsTableViewCell.reuseId, for: indexPath) as! ContactsTableViewCell
-        cell.fillCell(contact: dataModel.GetContact(index: indexPath.row))
+        if (resultSearchController.isActive) {
+            cell.fillCell(contact: dataModel.filteredContact(index: indexPath.row))
+        } else {
+            cell.fillCell(contact: dataModel.GetContact(index: indexPath.row))
+        }
+        
         return cell
     }
     
