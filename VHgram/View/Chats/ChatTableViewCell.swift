@@ -33,7 +33,7 @@ class ChatTableViewCell: UITableViewCell {
     func fillCell(chat: Dictionary<String, String>) {
         name.text = chat["dialog_name"]
         lastMsg.text = chat["last_msg"]
-        newMsg.text = chat["unread"]
+        newMsg.text = chat["unread"] ?? "0"
         imgageUrl = chat["dialog_img"] ?? ""
         date.text = ""
         NetworkLayer.loadImage(relativePath: imgageUrl, img: self.img)

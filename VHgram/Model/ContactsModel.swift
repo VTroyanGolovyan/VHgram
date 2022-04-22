@@ -24,7 +24,7 @@ class ContactsModel {
     ]
     
     public init() {
-        NetworkLayer.sendAuthorizedPOSTRequest(module: "contacts", getParams: [:], body: [:], complition: chatsRequestCallback)
+        refetchData()
     }
     
     func Count() -> Int {
@@ -33,6 +33,10 @@ class ContactsModel {
     
     func GetContact(index: Int) -> Dictionary<String, String> {
         return contacts[index]
+    }
+    
+    func refetchData() {
+        NetworkLayer.sendAuthorizedPOSTRequest(module: "contacts", getParams: [:], body: [:], complition: chatsRequestCallback)
     }
     
     private func chatsRequestCallback(response: Any) {

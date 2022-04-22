@@ -21,8 +21,15 @@ class AuthModel {
     static func GetInstance() -> AuthModel {
         return authModel
     }
+    
     static func isSigned() -> Bool {
         return AuthModel.GetInstance().hasSigned
+    }
+    
+    static func signOut() {
+        AuthModel.GetInstance().hasSigned = false
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: "auth_data")
     }
     
     static func signIn(login: String,  password: String) {

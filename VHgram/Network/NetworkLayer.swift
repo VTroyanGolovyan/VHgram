@@ -33,8 +33,13 @@ class NetworkLayer {
                 return
             }
 
-            let responseString = String(data: data, encoding: .utf8)
-            complition(serialize(text: responseString!))
+            if !data.isEmpty {
+                let responseString = String(data: data, encoding: .utf8)
+                let dataDict = serialize(text: responseString!)
+                complition(dataDict)
+            }
+            
+            
         }
         task.resume()
     }

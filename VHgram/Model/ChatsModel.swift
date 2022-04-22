@@ -8,18 +8,23 @@
 import Foundation
 import UIKit
 
-class ChatsModel {
+class ChatsModel: EventFollower {
     var chatsViewDelegate:UITableView?
     
     var chats:[[String:String]] = [
     ]
     
     public init() {
-        NetworkLayer.sendAuthorizedPOSTRequest(module: "getuserdialogs", getParams: [:], body: [:], complition: chatsRequestCallback)
+        referchData()
+        PollingWorker.followEventByType(e_type: EventType.NewMessage, follower: self)
     }
     
     func Count() -> Int {
         return chats.count
+    }
+    
+    func referchData() {
+        NetworkLayer.sendAuthorizedPOSTRequest(module: "getuserdialogs", getParams: [:], body: [:], complition: chatsRequestCallback)
     }
     
     func GetChat(index: Int) -> Dictionary<String, String> {
@@ -46,4 +51,9 @@ class ChatsModel {
             }
         }
     }
+    
+    func eventHandle(event: [String:String]) {
+        referchData()
+    }
+    
 }

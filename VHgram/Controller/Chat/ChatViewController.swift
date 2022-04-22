@@ -7,14 +7,31 @@
 
 import UIKit
 
-class ChatViewController: UIViewController {
-
+class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var chatTable: UITableView!
+    
+    static func storyBoardInstance() -> ChatViewController? {
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChatViewController") as? ChatViewController
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        chatTable.delegate = self
+        chatTable.dataSource = self
+        print("kek")
         // Do any additional setup after loading the view.
     }
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = "Hi"
+        return cell
+    }
 
     /*
     // MARK: - Navigation

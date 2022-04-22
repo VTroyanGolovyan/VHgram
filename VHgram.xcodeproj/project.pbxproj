@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA264C7A28122E8B0014CA3B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA264C7828122E8B0014CA3B /* ProfileViewController.swift */; };
+		AA264C7B28122E8B0014CA3B /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA264C7928122E8B0014CA3B /* ProfileViewController.xib */; };
+		AA264C7D281230D70014CA3B /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA264C7C281230D70014CA3B /* ProfileModel.swift */; };
+		AA264C802812385F0014CA3B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA264C7E2812385F0014CA3B /* SettingsViewController.swift */; };
+		AA264C812812385F0014CA3B /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA264C7F2812385F0014CA3B /* SettingsViewController.xib */; };
 		AA66A5C5280FC60700C7D9F7 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA66A5C3280FC60700C7D9F7 /* ChatViewController.swift */; };
-		AA66A5C6280FC60700C7D9F7 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA66A5C4280FC60700C7D9F7 /* ChatViewController.xib */; };
-		AA66A5C8280FC81E00C7D9F7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA66A5C7280FC81E00C7D9F7 /* SettingsViewController.swift */; };
+		AA66A5CA280FD04600C7D9F7 /* Polling.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA66A5C9280FD04600C7D9F7 /* Polling.swift */; };
 		AA71CF54280EECA600A9907E /* ContactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA71CF53280EECA600A9907E /* ContactsModel.swift */; };
 		AA71CF56280EECB100A9907E /* DialogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA71CF55280EECB100A9907E /* DialogModel.swift */; };
 		AA71CF58280EEDC800A9907E /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA71CF57280EEDC800A9907E /* AuthModel.swift */; };
@@ -54,9 +58,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA264C7828122E8B0014CA3B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		AA264C7928122E8B0014CA3B /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		AA264C7C281230D70014CA3B /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		AA264C7E2812385F0014CA3B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = VHgram/Model/SettingsViewController.swift; sourceTree = SOURCE_ROOT; };
+		AA264C7F2812385F0014CA3B /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SettingsViewController.xib; path = VHgram/Model/SettingsViewController.xib; sourceTree = SOURCE_ROOT; };
 		AA66A5C3280FC60700C7D9F7 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		AA66A5C4280FC60700C7D9F7 /* ChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
-		AA66A5C7280FC81E00C7D9F7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		AA66A5C9280FD04600C7D9F7 /* Polling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Polling.swift; sourceTree = "<group>"; };
 		AA71CF53280EECA600A9907E /* ContactsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsModel.swift; sourceTree = "<group>"; };
 		AA71CF55280EECB100A9907E /* DialogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogModel.swift; sourceTree = "<group>"; };
 		AA71CF57280EEDC800A9907E /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
@@ -112,6 +120,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA264C7728122E700014CA3B /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				AA264C7828122E8B0014CA3B /* ProfileViewController.swift */,
+				AA264C7928122E8B0014CA3B /* ProfileViewController.xib */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		AA50D1192807797A00B62425 /* Chats */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +148,8 @@
 		AA50D11B280779A000B62425 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				AA264C7E2812385F0014CA3B /* SettingsViewController.swift */,
+				AA264C7F2812385F0014CA3B /* SettingsViewController.xib */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -139,7 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				AA66A5C3280FC60700C7D9F7 /* ChatViewController.swift */,
-				AA66A5C4280FC60700C7D9F7 /* ChatViewController.xib */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -148,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				AA71CF5A280EEE5500A9907E /* NetworkLayer.swift */,
+				AA66A5C9280FD04600C7D9F7 /* Polling.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -164,6 +183,7 @@
 		AA8DC6CB280621730036FCDE /* AppTabBar */ = {
 			isa = PBXGroup;
 			children = (
+				AA264C7728122E700014CA3B /* Profile */,
 				AA50D11B280779A000B62425 /* Settings */,
 				AA50D11A2807799700B62425 /* Contacts */,
 				AA50D1192807797A00B62425 /* Chats */,
@@ -241,7 +261,6 @@
 				AA66A5C2280FC5D600C7D9F7 /* Chat */,
 				AA8DC6CB280621730036FCDE /* AppTabBar */,
 				AAC35B3728024810007ABDBE /* Login */,
-				AA66A5C7280FC81E00C7D9F7 /* SettingsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -264,6 +283,7 @@
 				AA71CF53280EECA600A9907E /* ContactsModel.swift */,
 				AA71CF55280EECB100A9907E /* DialogModel.swift */,
 				AA71CF57280EEDC800A9907E /* AuthModel.swift */,
+				AA264C7C281230D70014CA3B /* ProfileModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -390,8 +410,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAC35B3C28024E69007ABDBE /* SlideCollectionViewCell.xib in Resources */,
+				AA264C812812385F0014CA3B /* SettingsViewController.xib in Resources */,
 				AAC33EB0280FBF5F00C4C7CD /* ContactsTableViewCell.xib in Resources */,
-				AA66A5C6280FC60700C7D9F7 /* ChatViewController.xib in Resources */,
+				AA264C7B28122E8B0014CA3B /* ProfileViewController.xib in Resources */,
 				AAC35B0F28024573007ABDBE /* LaunchScreen.storyboard in Resources */,
 				AA8DC6D5280621F50036FCDE /* ChatTableViewCell.xib in Resources */,
 				AAC35B0C28024573007ABDBE /* Assets.xcassets in Resources */,
@@ -422,6 +443,7 @@
 			files = (
 				AA71CF5B280EEE5500A9907E /* NetworkLayer.swift in Sources */,
 				AAC35B3628024807007ABDBE /* LoginViewController.swift in Sources */,
+				AA264C802812385F0014CA3B /* SettingsViewController.swift in Sources */,
 				AA66A5C5280FC60700C7D9F7 /* ChatViewController.swift in Sources */,
 				AA71CF56280EECB100A9907E /* DialogModel.swift in Sources */,
 				AA71CF54280EECA600A9907E /* ContactsModel.swift in Sources */,
@@ -429,14 +451,16 @@
 				AAC35B0528024572007ABDBE /* SceneDelegate.swift in Sources */,
 				AAC33EAC280FBE6400C4C7CD /* ContactsTableViewController.swift in Sources */,
 				AA8DC6DB280639960036FCDE /* ChatsModel.swift in Sources */,
+				AA264C7A28122E8B0014CA3B /* ProfileViewController.swift in Sources */,
 				AA8DC6E628076FBF0036FCDE /* AppTabBarViewController.swift in Sources */,
 				AA8DC6D4280621F50036FCDE /* ChatTableViewCell.swift in Sources */,
 				AAC35B3B28024E69007ABDBE /* SlideCollectionViewCell.swift in Sources */,
-				AA66A5C8280FC81E00C7D9F7 /* SettingsViewController.swift in Sources */,
 				AA8DC6E9280770580036FCDE /* ChatsTableViewController.swift in Sources */,
+				AA264C7D281230D70014CA3B /* ProfileModel.swift in Sources */,
 				AAC33EAE280FBF1B00C4C7CD /* ContactsTableViewCell.swift in Sources */,
 				AA71CF58280EEDC800A9907E /* AuthModel.swift in Sources */,
 				AAC33E9F280F42A600C4C7CD /* ContactsView.swift in Sources */,
+				AA66A5CA280FD04600C7D9F7 /* Polling.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

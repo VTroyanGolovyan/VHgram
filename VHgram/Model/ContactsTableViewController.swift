@@ -19,6 +19,8 @@ class ContactsTableViewController: UITableViewController {
         tableView.register(UINib(nibName: ContactsTableViewCell.reuseId, bundle: nil), forCellReuseIdentifier: ContactsTableViewCell.reuseId)
         dataModel.contactsViewDelegate = tableView
         self.navigationItem.title = "Contacts"
+        self.navigationController?.navigationBar.backgroundColor = UIColor.darkGray
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
     }
 
     // MARK: - Table view data source
@@ -39,7 +41,9 @@ class ContactsTableViewController: UITableViewController {
         return cell
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        dataModel.refetchData()
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

@@ -10,6 +10,7 @@ import UIKit
 class ChatsTableViewController: UITableViewController {
     
     var dataModel = ChatsModel()
+    var delegate: AppTabBarViewControllerDelegate?
     
     override func viewDidLoad() {
        
@@ -18,7 +19,7 @@ class ChatsTableViewController: UITableViewController {
         tableView.backgroundColor = .lightGray
         
         tableView.rowHeight = 80
-        
+        self.tableView.allowsSelection = true
         tableView.separatorInset =  UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         //self.view = tableView
         tableView.delegate = self
@@ -26,6 +27,8 @@ class ChatsTableViewController: UITableViewController {
         tableView.register(UINib(nibName: ChatTableViewCell.reuseId, bundle: nil), forCellReuseIdentifier: ChatTableViewCell.reuseId)
         dataModel.chatsViewDelegate = tableView
         self.navigationItem.title = "Chats"
+        self.navigationController?.navigationBar.backgroundColor = UIColor.darkGray
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
     }
 
     // MARK: - Table view data source
@@ -35,7 +38,6 @@ class ChatsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
         return self.dataModel.Count()
     }
 
@@ -45,11 +47,19 @@ class ChatsTableViewController: UITableViewController {
         cell.fillCell(chat: dataModel.GetChat(index: indexPath.row))
         if cell.newMsg.text == "0" {
             cell.newMsg.isHidden = true
+        } else {
+            cell.newMsg.isHidden = false
         }
         return cell
     }
-    
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.delegate?.switchChatView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        dataModel.referchData()
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

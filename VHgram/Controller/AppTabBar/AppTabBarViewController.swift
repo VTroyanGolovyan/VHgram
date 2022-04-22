@@ -7,11 +7,16 @@
 
 import UIKit
 
+protocol AppTabBarViewControllerDelegate {
+    func switchSignInController();
+    func switchChatView();
+}
+
 class AppTabBarViewController: UITabBarController {
     
     
-    var chatsTableViewController: UITableViewController = ChatsTableViewController()
-    var contactsTableViewController: UIViewController = ContactsTableViewController()
+    var chatsTableViewController: ChatsTableViewController = ChatsTableViewController()
+    var contactsTableViewController: ContactsTableViewController = ContactsTableViewController()
     
     
     static func storyBoardInstance() -> AppTabBarViewController? {
@@ -20,27 +25,31 @@ class AppTabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         chatsTableViewController.title="✉️"
+        chatsTableViewController.delegate = self
         contactsTableViewController.title="📔"
-        let settings = UIViewController()
+        let settings = SettingsViewController()
         settings.title="⚙️"
-        let profile = UIViewController()
+        settings.delegate = self
+        
+        let profile = ProfileViewController()
         profile.title = "👤"
         let news = UIViewController()
         news.title = "📰"
-        setViewControllers([chatsTableViewController, news, contactsTableViewController, profile, settings], animated: true)
+        setViewControllers([
+            UINavigationController(rootViewController: chatsTableViewController),
+            news,
+            UINavigationController(rootViewController: contactsTableViewController),
+            UINavigationController(rootViewController: profile),
+            UINavigationController(rootViewController: settings)],
+            animated: true)
         
         UITabBar.appearance().backgroundColor = .white
         UITabBar.appearance().tintColor = .black
         
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font : UIFont(name: "AppleSDGothicNeo-Bold", size: 32)], for: .normal)
-       // tableView.rowHeight = 80
-       // self.view.addSubview(tableView)
-       // tableView.delegate = self
-       // tableView.dataSource = self
-        
-        //tableView.register(UINib(nibName: ChatTableViewCell.reuseId, bundle: nil), forCellReuseIdentifier: ChatTableViewCell.reuseId)
+        PollingWorker.runPolling()
     }
     
 
@@ -54,4 +63,23 @@ class AppTabBarViewController: UITabBarController {
     }
     */
 
+}
+
+
+extension AppTabBarViewController: AppTabBarViewControllerDelegate {
+    func switchChatView() {
+        var app = ChatViewController.storyBoardInstance()
+        if app != nil {
+            self.view.insertSubview((app?.view)!, at: 1)
+            UIApplication.shared.windows.first?.rootViewController = app
+        }
+    }
+    
+    func switchSignInController() {
+        var app = LoginViewController.storyBoardInstance()
+        if app != nil {
+            self.view.insertSubview((app?.view)!, at: 1)
+            UIApplication.shared.windows.first?.rootViewController = app
+        }
+    }
 }

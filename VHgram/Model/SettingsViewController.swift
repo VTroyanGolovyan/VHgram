@@ -2,19 +2,27 @@
 //  SettingsViewController.swift
 //  VHgram
 //
-//  Created by Владислав on 20.04.2022.
+//  Created by Владислав on 22.04.2022.
 //
 
 import UIKit
 
 class SettingsViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    var delegate: AppTabBarViewControllerDelegate?
+    
+    @IBAction func signOut(_ sender: Any) {
+        AuthModel.signOut()
+        delegate?.switchSignInController()
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationItem.title = "Settings"
+        self.navigationController?.navigationBar.backgroundColor = UIColor.darkGray
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+    }
+
 
     /*
     // MARK: - Navigation

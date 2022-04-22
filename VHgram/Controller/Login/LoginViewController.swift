@@ -20,7 +20,10 @@ class LoginViewController: UIViewController {
         configCollectionView()
     }
     
-
+    static func storyBoardInstance() -> LoginViewController? {
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController
+    }
+    
     func configCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -67,8 +70,5 @@ extension LoginViewController: LoginViewControllerDelegate {
             self.view.insertSubview((app?.view)!, at: 1)
             UIApplication.shared.windows.first?.rootViewController = app
         }
-        
     }
-    
-    
 }
