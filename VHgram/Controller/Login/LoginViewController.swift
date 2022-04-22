@@ -39,6 +39,9 @@ class LoginViewController: UIViewController {
         collectionView.register(
             UINib(nibName: SlideCollectionViewCell.reuseId, bundle: nil),
             forCellWithReuseIdentifier: SlideCollectionViewCell.reuseId)
+        collectionView.register(
+            UINib(nibName: SignUpCollectionViewCell.reuseId, bundle: nil),
+            forCellWithReuseIdentifier: SignUpCollectionViewCell.reuseId)
         self.navigationItem.title = "Login"
     }
 
@@ -47,15 +50,21 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 2
         
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SlideCollectionViewCell.reuseId, for: indexPath) as! SlideCollectionViewCell
-        cell.delegate = self
-        return cell
+        if indexPath.item == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SlideCollectionViewCell.reuseId, for: indexPath) as! SlideCollectionViewCell
+            cell.delegate = self
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SignUpCollectionViewCell.reuseId, for: indexPath) as! SignUpCollectionViewCell
+            return cell
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -65,10 +74,10 @@ extension LoginViewController: UICollectionViewDelegate, UICollectionViewDataSou
 
 extension LoginViewController: LoginViewControllerDelegate {
     func switchAppController() {
-        var app = AppTabBarViewController.storyBoardInstance()
+        let app = AppTabBarViewController.storyBoardInstance()
         if app != nil {
             self.view.insertSubview((app?.view)!, at: 1)
-            UIApplication.shared.windows.first?.rootViewController = app
+            UIApplication.shared.keyWindow?.rootViewController = app
         }
     }
 }

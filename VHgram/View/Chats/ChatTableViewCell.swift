@@ -26,8 +26,6 @@ class ChatTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func fillCell(chat: Dictionary<String, String>) {
@@ -40,7 +38,6 @@ class ChatTableViewCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
-        // Set the width of the cell
         super.layoutSubviews()
         self.layer.cornerRadius = 8
         self.layer.masksToBounds = true

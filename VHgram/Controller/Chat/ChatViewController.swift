@@ -17,9 +17,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        chatTable.delegate = self
-        chatTable.dataSource = self
-        print("kek")
+        //chatTable.delegate = self
+        //chatTable.dataSource = self
         // Do any additional setup after loading the view.
     }
 

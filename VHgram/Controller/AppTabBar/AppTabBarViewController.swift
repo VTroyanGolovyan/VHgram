@@ -27,7 +27,7 @@ class AppTabBarViewController: UITabBarController {
         super.viewDidLoad()
         
         chatsTableViewController.title="✉️"
-        chatsTableViewController.delegate = self
+        chatsTableViewController.viewDelegate = self
         contactsTableViewController.title="📔"
         let settings = SettingsViewController()
         settings.title="⚙️"
@@ -37,19 +37,20 @@ class AppTabBarViewController: UITabBarController {
         profile.title = "👤"
         let news = UIViewController()
         news.title = "📰"
-        setViewControllers([
+        self.setViewControllers([
             UINavigationController(rootViewController: chatsTableViewController),
             news,
             UINavigationController(rootViewController: contactsTableViewController),
             UINavigationController(rootViewController: profile),
             UINavigationController(rootViewController: settings)],
             animated: true)
-        
+       
         UITabBar.appearance().backgroundColor = .white
         UITabBar.appearance().tintColor = .black
         
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font : UIFont(name: "AppleSDGothicNeo-Bold", size: 32)], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font : UIFont(name: "AppleSDGothicNeo-Bold", size: 32)!], for: .normal)
         PollingWorker.runPolling()
+        self.loadViewIfNeeded()
     }
     
 
@@ -68,18 +69,35 @@ class AppTabBarViewController: UITabBarController {
 
 extension AppTabBarViewController: AppTabBarViewControllerDelegate {
     func switchChatView() {
-        var app = ChatViewController.storyBoardInstance()
+        let app = ChatViewController.storyBoardInstance()
         if app != nil {
             self.view.insertSubview((app?.view)!, at: 1)
-            UIApplication.shared.windows.first?.rootViewController = app
+            UIApplication.shared.keyWindow?.rootViewController = app
         }
     }
     
     func switchSignInController() {
-        var app = LoginViewController.storyBoardInstance()
+        let app = LoginViewController.storyBoardInstance()
         if app != nil {
             self.view.insertSubview((app?.view)!, at: 1)
-            UIApplication.shared.windows.first?.rootViewController = app
+            UIApplication.shared.keyWindow?.rootViewController = app
         }
     }
+}
+
+extension UIApplication {
+    
+    var keyWindow: UIWindow? {
+        // Get connected scenes
+        return UIApplication.shared.connectedScenes
+            // Keep only active scenes, onscreen and visible to the user
+            .filter { $0.activationState == .foregroundActive }
+            // Keep only the first `UIWindowScene`
+            .first(where: { $0 is UIWindowScene })
+            // Get its associated windows
+            .flatMap({ $0 as? UIWindowScene })?.windows
+            // Finally, keep only the key window
+            .first(where: \.isKeyWindow)
+    }
+    
 }
