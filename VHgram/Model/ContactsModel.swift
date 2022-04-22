@@ -6,15 +6,6 @@
 //
 
 import Foundation
-
-//
-//  ChatsModel.swift
-//  VHgram
-//
-//  Created by Владислав on 13.04.2022.
-//
-
-import Foundation
 import UIKit
 
 class ContactsModel {

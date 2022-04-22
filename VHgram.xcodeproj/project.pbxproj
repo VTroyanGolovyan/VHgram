@@ -26,7 +26,6 @@
 		AA8DC6DB280639960036FCDE /* ChatsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8DC6DA280639960036FCDE /* ChatsModel.swift */; };
 		AA8DC6E628076FBF0036FCDE /* AppTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8DC6E528076FBF0036FCDE /* AppTabBarViewController.swift */; };
 		AA8DC6E9280770580036FCDE /* ChatsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8DC6E8280770580036FCDE /* ChatsTableViewController.swift */; };
-		AAC33E9F280F42A600C4C7CD /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC33E9E280F42A600C4C7CD /* ContactsView.swift */; };
 		AAC33EAC280FBE6400C4C7CD /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC33EAB280FBE6400C4C7CD /* ContactsTableViewController.swift */; };
 		AAC33EAE280FBF1B00C4C7CD /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC33EAD280FBF1B00C4C7CD /* ContactsTableViewCell.swift */; };
 		AAC33EB0280FBF5F00C4C7CD /* ContactsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAC33EAF280FBF5F00C4C7CD /* ContactsTableViewCell.xib */; };
@@ -80,7 +79,6 @@
 		AA8DC6DA280639960036FCDE /* ChatsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsModel.swift; sourceTree = "<group>"; };
 		AA8DC6E528076FBF0036FCDE /* AppTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarViewController.swift; sourceTree = "<group>"; };
 		AA8DC6E8280770580036FCDE /* ChatsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsTableViewController.swift; sourceTree = "<group>"; };
-		AAC33E9E280F42A600C4C7CD /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
 		AAC33EAB280FBE6400C4C7CD /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContactsTableViewController.swift; path = VHgram/Model/ContactsTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		AAC33EAD280FBF1B00C4C7CD /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactsTableViewCell.swift; path = VHgram/View/Contacts/ContactsTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		AAC33EAF280FBF5F00C4C7CD /* ContactsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ContactsTableViewCell.xib; path = VHgram/View/Contacts/ContactsTableViewCell.xib; sourceTree = SOURCE_ROOT; };
@@ -286,7 +284,6 @@
 				AAC33E95280F41E200C4C7CD /* Contacts */,
 				AA8B44B1280280A800F33637 /* Chats */,
 				AAC35B3828024DE6007ABDBE /* Slide */,
-				AAC33E9E280F42A600C4C7CD /* ContactsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -479,7 +476,6 @@
 				AA264C8C2812E0250014CA3B /* CollectionsExtensions.swift in Sources */,
 				AAC33EAE280FBF1B00C4C7CD /* ContactsTableViewCell.swift in Sources */,
 				AA71CF58280EEDC800A9907E /* AuthModel.swift in Sources */,
-				AAC33E9F280F42A600C4C7CD /* ContactsView.swift in Sources */,
 				AA66A5CA280FD04600C7D9F7 /* Polling.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
