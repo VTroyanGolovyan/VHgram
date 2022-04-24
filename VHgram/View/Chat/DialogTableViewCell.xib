@@ -16,15 +16,15 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="92"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="profile-user" translatesAutoresizingMaskIntoConstraints="NO" id="tck-6m-8qM">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-user" translatesAutoresizingMaskIntoConstraints="NO" id="tck-6m-8qM">
                         <rect key="frame" x="7" y="9" width="60" height="60"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="75" id="QOO-D5-3eY"/>
-                            <constraint firstAttribute="width" constant="75" id="jnj-4n-9fy"/>
+                            <constraint firstAttribute="height" constant="60" id="QOO-D5-3eY"/>
+                            <constraint firstAttribute="width" constant="60" id="jnj-4n-9fy"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello!!! How are you?" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3z-u0-Ofo">
-                        <rect key="frame" x="90" y="37" width="189" height="44"/>
+                        <rect key="frame" x="79" y="37" width="200" height="44"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <accessibility key="accessibilityConfiguration" identifier="chatLastMessage"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -32,7 +32,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p49-BI-OVt">
-                        <rect key="frame" x="90" y="0.0" width="230" height="31"/>
+                        <rect key="frame" x="79" y="0.0" width="241" height="31"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <accessibility key="accessibilityConfiguration" identifier="chatName"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -49,6 +49,10 @@
                     </label>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="tck-6m-8qM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="IMh-fb-szs"/>
+                    <constraint firstItem="tck-6m-8qM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="7" id="riB-Je-pjD"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
