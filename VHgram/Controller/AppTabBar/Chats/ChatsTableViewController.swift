@@ -29,9 +29,7 @@ class ChatsTableViewController: UITableViewController {
         self.navigationController?.navigationBar.backgroundColor = UIColor.darkGray
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
     }
-
-    // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

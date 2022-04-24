@@ -11,7 +11,7 @@ protocol MessagesViewControllerDelegate {
     func switchAppTabBar();
 }
 
-class MessagesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MessagesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
     let dialogModel = DialogModel()
     @IBOutlet weak var dialogName: UILabel!
@@ -34,6 +34,12 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
         messagesTable.delegate = self
         messagesTable.dataSource = self
         messagesTable.register(UINib(nibName: DialogTableViewCell.reuseId, bundle: nil), forCellReuseIdentifier: DialogTableViewCell.reuseId)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        self.inputField.delegate = self
+        
         messagesTable.rowHeight = 90
         dialogModel.dialogNameDelegate = dialogName
         dialogModel.dialogMessagesDelegate = messagesTable
@@ -51,9 +57,29 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
         return cell;
     }
     
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         dialogModel.refetchData()
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
 }
 
 extension MessagesViewController: MessagesViewControllerDelegate {
