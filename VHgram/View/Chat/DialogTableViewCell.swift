@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DialogTableViewCell: UITableViewCell {
+class DialogTableViewCell: RoundedCellWithShadow {
 
     static let reuseId = "DialogTableViewCell"
     
@@ -15,6 +15,7 @@ class DialogTableViewCell: UITableViewCell {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userAvatar: UIImageView!
     @IBOutlet weak var message: UILabel!
+    
     var userAvatarURL: String?
     
     override func awakeFromNib() {
@@ -37,13 +38,6 @@ class DialogTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.layer.cornerRadius = 8
-        self.layer.masksToBounds = true
-        self.layer.shadowColor =  UIColor.gray.cgColor
-        self.layer.shadowOpacity = 0.8
-        self.layer.shadowRadius = 4
-        self.layer.borderWidth = CGFloat(1)
-        self.layer.borderColor = UIColor.lightGray.cgColor
         self.userAvatar.layer.cornerRadius = self.userAvatar.frame.size.width / 2
         self.userAvatar.layer.masksToBounds = true
     }

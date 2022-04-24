@@ -7,8 +7,10 @@
 
 import UIKit
 
-class ChatTableViewCell: UITableViewCell {
-
+class ChatTableViewCell: RoundedCellWithShadow {
+    
+    static let reuseId = "ChatTableViewCell"
+    
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var lastMsg: UILabel!
     @IBOutlet weak var date: UILabel!
@@ -18,11 +20,8 @@ class ChatTableViewCell: UITableViewCell {
     var imgageUrl = ""
     var dialog = ""
     
-    static let reuseId = "ChatTableViewCell"
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -41,13 +40,6 @@ class ChatTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.layer.cornerRadius = 8
-        self.layer.masksToBounds = true
-        self.layer.shadowColor =  UIColor.gray.cgColor
-        self.layer.shadowOpacity = 0.8
-        self.layer.shadowRadius = 4
-        self.layer.borderWidth = CGFloat(1)
-        self.layer.borderColor = UIColor.lightGray.cgColor
         self.img.layer.cornerRadius = self.img.frame.size.width / 2
         self.img.layer.masksToBounds = true
         self.newMsg.layer.cornerRadius = 5
