@@ -76,6 +76,9 @@
                                     </attributedString>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="SignUpNtnAct:" destination="gTV-IL-0wX" eventType="touchUpInside" id="5hj-eE-3T2"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PpW-aF-I9H">
                                 <rect key="frame" x="40" y="417" width="271" height="21"/>
@@ -148,6 +151,15 @@
                 <constraint firstAttribute="trailing" secondItem="9Mi-N3-zJJ" secondAttribute="trailing" constant="1" id="wEI-1R-7m7"/>
             </constraints>
             <size key="customSize" width="353" height="640"/>
+            <connections>
+                <outlet property="checkPassword" destination="laO-kA-ctf" id="WEz-pm-zFX"/>
+                <outlet property="email" destination="JDd-At-j4G" id="X1v-fp-39O"/>
+                <outlet property="lastName" destination="wzB-yn-ZIR" id="yWK-UX-giL"/>
+                <outlet property="name" destination="nyN-E5-v6f" id="RvR-O2-S1D"/>
+                <outlet property="password" destination="V1F-qw-rKs" id="1Dz-5X-Q31"/>
+                <outlet property="sugnUpBtn" destination="03S-rb-kx8" id="2mi-PC-JPa"/>
+                <outlet property="verdict" destination="PpW-aF-I9H" id="gAj-eN-zBd"/>
+            </connections>
             <point key="canvasLocation" x="166.12149532710279" y="-59.611231101511883"/>
         </collectionViewCell>
     </objects>

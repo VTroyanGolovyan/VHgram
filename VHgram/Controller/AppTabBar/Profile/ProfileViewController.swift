@@ -19,6 +19,7 @@ class ProfileViewController: UIViewController {
         self.navigationItem.title = "Profile"
         self.navigationController?.navigationBar.backgroundColor = UIColor.darkGray
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        model.refetchData()
     }
 
     override func viewWillAppear(_ animated: Bool) {

@@ -12,6 +12,7 @@ class AuthModel {
     static var authModel = AuthModel()
     static var loginDelegate: LoginViewControllerDelegate?
     static var labelDelegate: UILabel?
+    static var regLabelDelegate: UILabel?
     var username: String?
     var token: String?
     var avatarURL: String?
@@ -77,4 +78,27 @@ class AuthModel {
             self.hasSigned = true
         }
     }
+    
+    static func signUp(name: String, lastName: String, login: String,  password: String, checkPassword: String) {
+        NetworkLayer.sendPOSTRequest(
+            module: "reg",
+            getParams: [:],
+            body: [
+                "name": name,
+                "second_name": lastName,
+                "gmail": login,
+                "password": password,
+                "chek": checkPassword,
+                "country": "1",
+                "city": "1"
+            ], complition: signUpCallback)
+    }
+    
+    static private func signUpCallback(response: Any?) {
+        let res = response! as? [String: Any]
+        DispatchQueue.main.async {
+            regLabelDelegate?.text = res?["text"] as? String
+        }
+    }
+    
 }

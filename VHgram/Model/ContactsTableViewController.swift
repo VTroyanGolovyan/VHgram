@@ -38,8 +38,6 @@ class ContactsTableViewController: UITableViewController,  UISearchResultsUpdati
         dataModel.filter(search: searchController.searchBar.text!)
     }
 
-    // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

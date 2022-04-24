@@ -19,6 +19,7 @@ class ContactsTableViewCell: UITableViewCell {
     var id = -1;
     
     @IBAction func newDialogBtn(_ sender: Any) {
+        
     }
     
     @IBAction func addContact(_ sender: Any) {

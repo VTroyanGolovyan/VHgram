@@ -17,6 +17,8 @@
 		AA264C8C2812E0250014CA3B /* CollectionsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA264C8B2812E0250014CA3B /* CollectionsExtensions.swift */; };
 		AA44E15228142D64003FE693 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA44E15128142D64003FE693 /* MessagesViewController.swift */; };
 		AA44E1582814D89E003FE693 /* ApplicationGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA44E1572814D89E003FE693 /* ApplicationGlobals.swift */; };
+		AA44E15B2814E43E003FE693 /* DialogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA44E1592814E43E003FE693 /* DialogTableViewCell.swift */; };
+		AA44E15C2814E43E003FE693 /* DialogTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA44E15A2814E43E003FE693 /* DialogTableViewCell.xib */; };
 		AA66A5CA280FD04600C7D9F7 /* Polling.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA66A5C9280FD04600C7D9F7 /* Polling.swift */; };
 		AA71CF54280EECA600A9907E /* ContactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA71CF53280EECA600A9907E /* ContactsModel.swift */; };
 		AA71CF56280EECB100A9907E /* DialogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA71CF55280EECB100A9907E /* DialogModel.swift */; };
@@ -71,6 +73,8 @@
 		AA264C8B2812E0250014CA3B /* CollectionsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsExtensions.swift; sourceTree = "<group>"; };
 		AA44E15128142D64003FE693 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		AA44E1572814D89E003FE693 /* ApplicationGlobals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationGlobals.swift; sourceTree = "<group>"; };
+		AA44E1592814E43E003FE693 /* DialogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogTableViewCell.swift; sourceTree = "<group>"; };
+		AA44E15A2814E43E003FE693 /* DialogTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DialogTableViewCell.xib; sourceTree = "<group>"; };
 		AA66A5C9280FD04600C7D9F7 /* Polling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Polling.swift; sourceTree = "<group>"; };
 		AA71CF53280EECA600A9907E /* ContactsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsModel.swift; sourceTree = "<group>"; };
 		AA71CF55280EECB100A9907E /* DialogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogModel.swift; sourceTree = "<group>"; };
@@ -209,6 +213,8 @@
 		AAA0A53228138385008A9151 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				AA44E1592814E43E003FE693 /* DialogTableViewCell.swift */,
+				AA44E15A2814E43E003FE693 /* DialogTableViewCell.xib */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -441,6 +447,7 @@
 				AA264C7B28122E8B0014CA3B /* ProfileViewController.xib in Resources */,
 				AAC35B0F28024573007ABDBE /* LaunchScreen.storyboard in Resources */,
 				AA8DC6D5280621F50036FCDE /* ChatTableViewCell.xib in Resources */,
+				AA44E15C2814E43E003FE693 /* DialogTableViewCell.xib in Resources */,
 				AAC35B0C28024573007ABDBE /* Assets.xcassets in Resources */,
 				AAC35B0A28024572007ABDBE /* Main.storyboard in Resources */,
 			);
@@ -471,6 +478,7 @@
 				AAC35B3628024807007ABDBE /* LoginViewController.swift in Sources */,
 				AA264C802812385F0014CA3B /* SettingsViewController.swift in Sources */,
 				AA71CF56280EECB100A9907E /* DialogModel.swift in Sources */,
+				AA44E15B2814E43E003FE693 /* DialogTableViewCell.swift in Sources */,
 				AA71CF54280EECA600A9907E /* ContactsModel.swift in Sources */,
 				AAC35B0328024572007ABDBE /* AppDelegate.swift in Sources */,
 				AAC35B0528024572007ABDBE /* SceneDelegate.swift in Sources */,

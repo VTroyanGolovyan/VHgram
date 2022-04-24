@@ -7,11 +7,16 @@
 
 import UIKit
 
+protocol MessagesViewControllerDelegate {
+    func switchAppTabBar();
+}
+
 class MessagesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     let dialogModel = DialogModel()
     @IBOutlet weak var DialogName: UILabel!
     @IBAction func backBtn(_ sender: Any) {
+        switchAppTabBar()
     }
     @IBOutlet weak var inputField: UITextField!
     @IBAction func sendBtn(_ sender: Any) {
@@ -42,5 +47,24 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewWillAppear(_ animated: Bool) {
         dialogModel.refetchData()
+    }
+    
+    private func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+
+    private func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+}
+
+extension MessagesViewController: MessagesViewControllerDelegate {
+    func switchAppTabBar() {
+        let app = AppTabBarViewController.storyBoardInstance()
+        if app != nil {
+            self.view.insertSubview((app?.view)!, at: 1)
+            UIApplication.shared.keyWindow?.rootViewController = app
+        }
     }
 }
