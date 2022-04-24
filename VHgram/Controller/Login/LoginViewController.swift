@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol LoginViewControllerDelegate {
-    func switchAppController();
-}
-
 class LoginViewController: UIViewController {
 
     var collectionView: UICollectionView!
@@ -25,6 +21,9 @@ class LoginViewController: UIViewController {
     }
     
     func configCollectionView() {
+        
+        self.navigationItem.title = "Login"
+        
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0
@@ -36,13 +35,14 @@ class LoginViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.isPagingEnabled = true
+        
         collectionView.register(
             UINib(nibName: SlideCollectionViewCell.reuseId, bundle: nil),
             forCellWithReuseIdentifier: SlideCollectionViewCell.reuseId)
         collectionView.register(
             UINib(nibName: SignUpCollectionViewCell.reuseId, bundle: nil),
             forCellWithReuseIdentifier: SignUpCollectionViewCell.reuseId)
-        self.navigationItem.title = "Login"
+        
     }
 
 }
@@ -70,6 +70,10 @@ extension LoginViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return self.view.frame.size
     }
+}
+
+protocol LoginViewControllerDelegate {
+    func switchAppController();
 }
 
 extension LoginViewController: LoginViewControllerDelegate {

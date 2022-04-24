@@ -7,11 +7,6 @@
 
 import UIKit
 
-protocol AppTabBarViewControllerDelegate {
-    func switchSignInController();
-    func switchChatView();
-}
-
 class AppTabBarViewController: UITabBarController {
     
     
@@ -26,15 +21,12 @@ class AppTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        chatsTableViewController.title="✉️"
+        
         chatsTableViewController.viewDelegate = self
-        contactsTableViewController.title="📔"
         let settings = SettingsViewController()
-        settings.title="⚙️"
         settings.delegate = self
         
         let profile = ProfileViewController()
-        profile.title = "👤"
         
         self.setViewControllers([
             UINavigationController(rootViewController: chatsTableViewController),
@@ -42,17 +34,38 @@ class AppTabBarViewController: UITabBarController {
             UINavigationController(rootViewController: profile),
             UINavigationController(rootViewController: settings)],
             animated: true)
-       
-        UITabBar.appearance().backgroundColor = .white
-        UITabBar.appearance().tintColor = .black
         
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font : UIFont(name: "AppleSDGothicNeo-Bold", size: 32)!], for: .normal)
         PollingWorker.runPolling()
+        
+        
+        tabBar.backgroundColor = .white
+        tabBar.tintColor = .darkGray
+        tabBar.unselectedItemTintColor = .lightGray
+        
+        configureTabBarItem(id: 0, imageSystemName: "mail.stack.fill", itemName: "Dialogs")
+        configureTabBarItem(id: 1, imageSystemName: "person.3.fill", itemName: "Contacts")
+        configureTabBarItem(id: 2, imageSystemName: "person.circle.fill", itemName: "Profile")
+        configureTabBarItem(id: 3, imageSystemName: "gearshape.fill", itemName: "Settings")
+        
         self.loadViewIfNeeded()
     }
 
+    private func configureTabBarItem(id: Int, imageSystemName: String, itemName: String) {
+        let tabBarItem = self.tabBar.items?[id]
+        let largeFont = UIFont.systemFont(ofSize: 20)
+        let configuration = UIImage.SymbolConfiguration(font: largeFont)
+        tabBarItem?.image = UIImage(systemName: imageSystemName, withConfiguration: configuration)
+        let selectedFont = UIFont.systemFont(ofSize: 18)
+        let selectConfiguration = UIImage.SymbolConfiguration(font: selectedFont)
+        tabBarItem?.selectedImage = UIImage(systemName: imageSystemName, withConfiguration: selectConfiguration)
+        tabBarItem?.title = itemName
+    }
 }
 
+protocol AppTabBarViewControllerDelegate {
+    func switchSignInController();
+    func switchChatView();
+}
 
 extension AppTabBarViewController: AppTabBarViewControllerDelegate {
     func switchChatView() {

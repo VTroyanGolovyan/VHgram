@@ -26,8 +26,8 @@ class ChatsTableViewController: UITableViewController {
         tableView.register(UINib(nibName: ChatTableViewCell.reuseId, bundle: nil), forCellReuseIdentifier: ChatTableViewCell.reuseId)
         dataModel.chatsViewDelegate = tableView
         self.navigationItem.title = "Chats"
-        self.navigationController?.navigationBar.backgroundColor = UIColor.darkGray
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.backgroundColor = UIColor.white
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.darkGray]
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

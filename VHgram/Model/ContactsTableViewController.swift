@@ -29,8 +29,8 @@ class ContactsTableViewController: UITableViewController,  UISearchResultsUpdati
             })()
         
         self.navigationItem.title = "Contacts"
-        self.navigationController?.navigationBar.backgroundColor = UIColor.darkGray
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.backgroundColor = UIColor.white
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.darkGray]
         
     }
     

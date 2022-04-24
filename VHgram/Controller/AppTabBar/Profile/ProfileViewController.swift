@@ -17,8 +17,8 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         model.profileDelegate = self
         self.navigationItem.title = "Profile"
-        self.navigationController?.navigationBar.backgroundColor = UIColor.darkGray
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.backgroundColor = UIColor.white
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.darkGray]
         model.refetchData()
     }
 
