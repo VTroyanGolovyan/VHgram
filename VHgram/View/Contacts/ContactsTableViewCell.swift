@@ -9,6 +9,7 @@ import UIKit
 
 class ContactsTableViewCell: UITableViewCell {
 
+    static let reuseId = "ContactsTableViewCell"
     
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var name: UILabel!
@@ -27,8 +28,6 @@ class ContactsTableViewCell: UITableViewCell {
     }
     
     var imgageUrl = ""
-    
-    static let reuseId = "ContactsTableViewCell"
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,7 +50,6 @@ class ContactsTableViewCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
-        // Set the width of the cell
         super.layoutSubviews()
         self.layer.cornerRadius = 8
         self.layer.masksToBounds = true

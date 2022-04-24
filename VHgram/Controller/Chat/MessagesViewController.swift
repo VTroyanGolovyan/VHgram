@@ -14,7 +14,7 @@ protocol MessagesViewControllerDelegate {
 class MessagesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     let dialogModel = DialogModel()
-    @IBOutlet weak var DialogName: UILabel!
+    @IBOutlet weak var dialogName: UILabel!
     @IBAction func backBtn(_ sender: Any) {
         switchAppTabBar()
     }
@@ -33,30 +33,27 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         messagesTable.delegate = self
         messagesTable.dataSource = self
+        messagesTable.register(UINib(nibName: DialogTableViewCell.reuseId, bundle: nil), forCellReuseIdentifier: DialogTableViewCell.reuseId)
+        messagesTable.rowHeight = 90
+        dialogModel.dialogNameDelegate = dialogName
+        dialogModel.dialogMessagesDelegate = messagesTable
         dialogModel.refetchData()
     }
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0;
+        return dialogModel.messagesCnt();
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell();
+        let cell = tableView.dequeueReusableCell(withIdentifier: DialogTableViewCell.reuseId, for: indexPath) as! DialogTableViewCell
+        cell.fillCell(data: dialogModel.getMessage(id: indexPath.row))
+        return cell;
     }
     
     override func viewWillAppear(_ animated: Bool) {
         dialogModel.refetchData()
     }
-    
-    private func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-
-    private func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
 }
 
 extension MessagesViewController: MessagesViewControllerDelegate {

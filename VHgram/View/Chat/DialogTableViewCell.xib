@@ -16,9 +16,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="92"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile-user" translatesAutoresizingMaskIntoConstraints="NO" id="tck-6m-8qM">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="profile-user" translatesAutoresizingMaskIntoConstraints="NO" id="tck-6m-8qM">
                         <rect key="frame" x="7" y="9" width="75" height="75"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="75" id="QOO-D5-3eY"/>
+                            <constraint firstAttribute="width" constant="75" id="jnj-4n-9fy"/>
+                        </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello!!! How are you?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3z-u0-Ofo">
                         <rect key="frame" x="90" y="37" width="189" height="44"/>
@@ -47,6 +50,12 @@
                 </subviews>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="date" destination="Yz5-w9-1iq" id="K1k-tZ-W95"/>
+                <outlet property="message" destination="s3z-u0-Ofo" id="H5W-59-Ws3"/>
+                <outlet property="userAvatar" destination="tck-6m-8qM" id="7uH-wR-u0t"/>
+                <outlet property="userName" destination="p49-BI-OVt" id="80s-85-Ixs"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="111.83035714285714"/>
         </tableViewCell>
     </objects>
