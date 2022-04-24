@@ -175,6 +175,14 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		AA5A4FAC281612850015DBD8 /* GlobalSettings */ = {
+			isa = PBXGroup;
+			children = (
+				AA44E1572814D89E003FE693 /* ApplicationGlobals.swift */,
+			);
+			path = GlobalSettings;
+			sourceTree = "<group>";
+		};
 		AA66A5C2280FC5D600C7D9F7 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,6 +262,7 @@
 		AAC35B0128024572007ABDBE /* VHgram */ = {
 			isa = PBXGroup;
 			children = (
+				AA5A4FAC281612850015DBD8 /* GlobalSettings */,
 				AA264C882812DF0B0014CA3B /* Utils */,
 				AA71CF59280EEE4800A9907E /* Network */,
 				AAC35B342802478E007ABDBE /* Model */,
@@ -265,7 +274,6 @@
 				AAC35B0B28024573007ABDBE /* Assets.xcassets */,
 				AAC35B0D28024573007ABDBE /* LaunchScreen.storyboard */,
 				AAC35B1028024573007ABDBE /* Info.plist */,
-				AA44E1572814D89E003FE693 /* ApplicationGlobals.swift */,
 			);
 			path = VHgram;
 			sourceTree = "<group>";

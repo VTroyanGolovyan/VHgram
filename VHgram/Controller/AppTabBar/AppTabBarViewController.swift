@@ -38,9 +38,7 @@ class AppTabBarViewController: UITabBarController {
         PollingWorker.runPolling()
         
         
-        tabBar.backgroundColor = .white
-        tabBar.tintColor = .darkGray
-        tabBar.unselectedItemTintColor = .lightGray
+        configureTabBar()
         
         configureTabBarItem(id: 0, imageSystemName: "mail.stack.fill", itemName: "Dialogs")
         configureTabBarItem(id: 1, imageSystemName: "person.3.fill", itemName: "Contacts")
@@ -50,6 +48,15 @@ class AppTabBarViewController: UITabBarController {
         self.loadViewIfNeeded()
     }
 
+    private func configureTabBar() {
+        tabBar.backgroundColor = .white
+        tabBar.tintColor = .darkGray
+        tabBar.unselectedItemTintColor = .lightGray
+        tabBar.layer.shadowColor =  UIColor.gray.cgColor
+        tabBar.layer.shadowOpacity = 0.8
+        tabBar.layer.shadowRadius = 4
+    }
+    
     private func configureTabBarItem(id: Int, imageSystemName: String, itemName: String) {
         let tabBarItem = self.tabBar.items?[id]
         let largeFont = UIFont.systemFont(ofSize: 20)
