@@ -23,6 +23,7 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     @IBOutlet weak var messagesTable: UITableView!
+    @IBOutlet weak var sendPanel: UIView!
     
     static func storyBoardInstance() -> MessagesViewController? {
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MessagesViewController") as? MessagesViewController
@@ -43,10 +44,19 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
         messagesTable.rowHeight = 90
         dialogModel.dialogNameDelegate = dialogName
         dialogModel.dialogMessagesDelegate = messagesTable
+        
+        sendPanel.layer.shadowColor =  UIColor.gray.cgColor
+        sendPanel.layer.shadowOpacity = 0.8
+        sendPanel.layer.shadowRadius = 4
+        
+        inputField.layer.borderColor = UIColor.lightGray.cgColor
+        
+        inputField.attributedPlaceholder = makeAttributedPlaceholder(text: "Message text")
         dialogModel.refetchData()
     }
     
-
+ 
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dialogModel.messagesCnt();
     }
