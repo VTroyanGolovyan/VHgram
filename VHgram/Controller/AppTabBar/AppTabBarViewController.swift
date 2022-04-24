@@ -69,7 +69,7 @@ class AppTabBarViewController: UITabBarController {
 
 extension AppTabBarViewController: AppTabBarViewControllerDelegate {
     func switchChatView() {
-        let app = ChatViewController.storyBoardInstance()
+        let app = MessagesViewController.storyBoardInstance()
         if app != nil {
             self.view.insertSubview((app?.view)!, at: 1)
             UIApplication.shared.keyWindow?.rootViewController = app

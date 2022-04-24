@@ -26,14 +26,12 @@ class ContactsTableViewController: UITableViewController,  UISearchResultsUpdati
         resultSearchController = ({
                 let controller = UISearchController(searchResultsController: nil)
                 controller.searchResultsUpdater = self
-                controller.dimsBackgroundDuringPresentation = false
                 controller.searchBar.sizeToFit()
 
                 tableView.tableHeaderView = controller.searchBar
 
                 return controller
             })()
-
     }
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -61,7 +59,6 @@ class ContactsTableViewController: UITableViewController,  UISearchResultsUpdati
         } else {
             cell.fillCell(contact: dataModel.GetContact(index: indexPath.row))
         }
-        
         return cell
     }
     

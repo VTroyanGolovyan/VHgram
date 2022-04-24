@@ -13,6 +13,17 @@ class ContactsTableViewCell: UITableViewCell {
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var status: UILabel!
+    @IBOutlet weak var online: UILabel!
+    @IBOutlet weak var addButton: UIButton!
+    
+    var id = -1;
+    
+    @IBAction func newDialogBtn(_ sender: Any) {
+    }
+    
+    @IBAction func addContact(_ sender: Any) {
+        addButton.setTitle("Remove", for: .normal)
+    }
     
     var imgageUrl = ""
     
@@ -31,9 +42,10 @@ class ContactsTableViewCell: UITableViewCell {
     
     func fillCell(contact: Dictionary<String, String>) {
         name.text = contact["name"]! + " " + contact["second_name"]!
-        status.text = contact["status"]
+        status.text = contact["status"] == "0" ? "" : contact["status"]
         imgageUrl = contact["avatar"] ?? ""
-
+        online.text = contact["online"] == "0" ? "Offline" : "Online"
+        self.img.image = UIImage(named: "profile-user")
         NetworkLayer.loadImage(relativePath: imgageUrl, img: self.img)
     }
     

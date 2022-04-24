@@ -53,55 +53,86 @@
             </objects>
             <point key="canvasLocation" x="-71" y="726"/>
         </scene>
-        <!--Messages-->
-        <scene sceneID="9bl-XR-rqt">
+        <!--Messages View Controller-->
+        <scene sceneID="uCR-kI-CZv">
             <objects>
-                <viewController id="UOs-Kq-Zfd" customClass="ChatViewController" customModule="VHgram" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Itv-m1-dhb">
+                <viewController storyboardIdentifier="MessagesViewController" id="Dgh-0m-KQt" customClass="MessagesViewController" customModule="VHgram" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Ix-03-Ons">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zNM-uI-kCp">
-                                <rect key="frame" x="0.0" y="88" width="428" height="804"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="separatorColor" red="0.96016810699999999" green="0.96016810699999999" blue="0.96016810699999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UTN-zA-pCC">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="83"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Dp-wp-fiJ">
+                                        <rect key="frame" x="8" y="38" width="78" height="53"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="&lt; Back"/>
+                                        <connections>
+                                            <action selector="backBtn:" destination="Dgh-0m-KQt" eventType="touchUpInside" id="GrU-9v-pyi"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWb-uG-3dx">
+                                        <rect key="frame" x="105" y="38" width="219" height="53"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="is8-Ef-XCi">
+                                <rect key="frame" x="0.0" y="91" width="428" height="753"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eio-mx-wri">
+                                <rect key="frame" x="0.0" y="844" width="428" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Vs-Hx-aHI">
+                                        <rect key="frame" x="279" y="0.0" width="149" height="73"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="send">
+                                            <backgroundConfiguration key="background">
+                                                <color key="backgroundColor" red="0.59607845540000004" green="0.14509806040000001" blue="0.11372549830000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </backgroundConfiguration>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="sendBtn:" destination="Dgh-0m-KQt" eventType="touchUpInside" id="NNT-pv-dD7"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Message" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H5r-hw-amw">
+                                        <rect key="frame" x="0.0" y="0.0" width="281" height="73"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="TGu-qr-QhW"/>
+                        <viewLayoutGuide key="safeArea" id="pcW-Za-Z06"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="TGu-qr-QhW" firstAttribute="trailing" secondItem="zNM-uI-kCp" secondAttribute="trailing" id="0at-T8-f5g"/>
-                            <constraint firstItem="zNM-uI-kCp" firstAttribute="top" secondItem="TGu-qr-QhW" secondAttribute="top" id="QDu-5a-ef4"/>
-                            <constraint firstItem="zNM-uI-kCp" firstAttribute="leading" secondItem="TGu-qr-QhW" secondAttribute="leading" id="jck-By-8K8"/>
-                            <constraint firstItem="TGu-qr-QhW" firstAttribute="bottom" secondItem="zNM-uI-kCp" secondAttribute="bottom" id="m6U-GH-ja6"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Messages" id="RCX-hA-oO1"/>
                     <connections>
-                        <outlet property="chatTable" destination="zNM-uI-kCp" id="GUZ-az-Vam"/>
+                        <outlet property="DialogName" destination="MWb-uG-3dx" id="LWn-mz-cb4"/>
+                        <outlet property="inputField" destination="H5r-hw-amw" id="MXk-ee-80i"/>
+                        <outlet property="messagesTable" destination="is8-Ef-XCi" id="U4B-Li-heh"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GUG-e4-Yo2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DDm-S9-F6n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1664.018691588785" y="725.70194384449246"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="6R5-ts-kGh">
-            <objects>
-                <navigationController storyboardIdentifier="ChatViewController" automaticallyAdjustsScrollViewInsets="NO" id="wsL-dZ-M3Q" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cQB-nX-td9">
-                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="UOs-Kq-Zfd" kind="relationship" relationship="rootViewController" id="M1f-zl-gwA"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WEt-iF-qfp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="762.61682242990651" y="725.70194384449246"/>
+            <point key="canvasLocation" x="592.99065420560748" y="725.70194384449246"/>
         </scene>
     </scenes>
     <resources>

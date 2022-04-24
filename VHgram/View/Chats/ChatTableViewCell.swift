@@ -16,6 +16,7 @@ class ChatTableViewCell: UITableViewCell {
     @IBOutlet weak var img: UIImageView!
     
     var imgageUrl = ""
+    var dialog = ""
     
     static let reuseId = "ChatTableViewCell"
     
@@ -34,6 +35,7 @@ class ChatTableViewCell: UITableViewCell {
         newMsg.text = chat["unread"] ?? "0"
         imgageUrl = chat["dialog_img"] ?? ""
         date.text = ""
+        dialog = chat["dialog_table"] ?? ""
         NetworkLayer.loadImage(relativePath: imgageUrl, img: self.img)
     }
     

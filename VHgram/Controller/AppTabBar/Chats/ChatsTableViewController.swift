@@ -53,6 +53,7 @@ class ChatsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        ApplicationGlobals.activeDialog = dataModel.GetChat(index: indexPath.row)["dialog_table"] ?? ""
         self.viewDelegate?.switchChatView()
     }
     

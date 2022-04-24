@@ -14,10 +14,12 @@ class SlideCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var label: UILabel!
     
     @IBAction func signIn(_ sender: UIButton) {
         let login = self.email.text
         let password = self.password.text
+        AuthModel.labelDelegate = label
         if (login != nil && password != nil) {
             AuthModel.loginDelegate = delegate
             AuthModel.signIn(login: login!, password: password!)
@@ -31,6 +33,7 @@ class SlideCollectionViewCell: UICollectionViewCell {
                                                          attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
         password.attributedPlaceholder = NSAttributedString(string: "Password",
                                                             attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+        
     }
 
 }

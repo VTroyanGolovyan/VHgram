@@ -83,6 +83,13 @@
                                     <action selector="signIn:" destination="gTV-IL-0wX" eventType="touchUpInside" id="zFm-V5-yFY"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Txb-1M-Uf5">
+                                <rect key="frame" x="40" y="187" width="271" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.59607845540000004" green="0.14509806040000001" blue="0.11372549830000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.96016810698942701" green="0.96016810698942701" blue="0.96016810698942701" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
@@ -118,6 +125,7 @@
             <size key="customSize" width="353" height="489"/>
             <connections>
                 <outlet property="email" destination="JDd-At-j4G" id="AZe-gQ-Tew"/>
+                <outlet property="label" destination="Txb-1M-Uf5" id="L4F-k6-jF9"/>
                 <outlet property="password" destination="V1F-qw-rKs" id="UcE-mg-blt"/>
             </connections>
             <point key="canvasLocation" x="166.12149532710279" y="-10.691144708423327"/>

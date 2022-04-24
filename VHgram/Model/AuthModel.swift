@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import UIKit
 
 class AuthModel {
     static var authModel = AuthModel()
     static var loginDelegate: LoginViewControllerDelegate?
-    
+    static var labelDelegate: UILabel?
     var username: String?
     var token: String?
     var avatarURL: String?
@@ -56,6 +57,10 @@ class AuthModel {
                 DispatchQueue.main.async {
                     loginDelegate?.switchAppController()
                 }
+            } else {
+                DispatchQueue.main.async {
+                    labelDelegate?.text = res?["text"] as? String
+                }
             }
         }
     }
@@ -72,27 +77,4 @@ class AuthModel {
             self.hasSigned = true
         }
     }
-}
-
-extension Dictionary {
-    func convertToJSONString() -> String?{
-        do {
-            let jsonData = try JSONSerialization.data(withJSONObject: self, options: .prettyPrinted)
-            return String(data: jsonData, encoding: String.Encoding.utf8)
-        } catch {
-            return nil
-        }
-    }
-}
-
-extension String {
-   func convertDict() -> [String: Any]? {
-       do {
-           let json = try JSONSerialization.jsonObject(with: self.data(using: String.Encoding.utf8)!, options: []) as? [String: Any]
-           return json
-       } catch {
-           return nil
-       }
-       
-   }
 }
