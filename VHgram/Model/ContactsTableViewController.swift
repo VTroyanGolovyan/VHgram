@@ -19,19 +19,19 @@ class ContactsTableViewController: UITableViewController,  UISearchResultsUpdati
         tableView.dataSource = self
         tableView.register(UINib(nibName: ContactsTableViewCell.reuseId, bundle: nil), forCellReuseIdentifier: ContactsTableViewCell.reuseId)
         dataModel.contactsViewDelegate = tableView
-        self.navigationItem.title = "Contacts"
-        self.navigationController?.navigationBar.backgroundColor = UIColor.darkGray
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         
         resultSearchController = ({
                 let controller = UISearchController(searchResultsController: nil)
                 controller.searchResultsUpdater = self
                 controller.searchBar.sizeToFit()
-
                 tableView.tableHeaderView = controller.searchBar
-
                 return controller
             })()
+        
+        self.navigationItem.title = "Contacts"
+        self.navigationController?.navigationBar.backgroundColor = UIColor.darkGray
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        
     }
     
     func updateSearchResults(for searchController: UISearchController) {

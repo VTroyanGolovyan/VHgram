@@ -30,7 +30,6 @@ class DialogModel {
     }
     
     private func dialogsRequestCallback(response: Any) {
-        
         let res = response as? [String:Any]
         dialogName = res?["dialog_name"] as! String
         messages = res?["messages"] as? [[String:String]] ?? []

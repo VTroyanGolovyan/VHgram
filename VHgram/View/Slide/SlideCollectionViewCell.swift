@@ -26,14 +26,10 @@ class SlideCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        email.attributedPlaceholder = NSAttributedString(string: "Email",
-                                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
-        password.attributedPlaceholder = NSAttributedString(string: "Password",
-                                                            attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
-        
+        email.attributedPlaceholder = makeAttributedPlaceholder(text: "Email")
+        password.attributedPlaceholder = makeAttributedPlaceholder(text: "Password")
     }
 
 }

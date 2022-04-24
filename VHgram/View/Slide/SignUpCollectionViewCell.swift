@@ -28,19 +28,11 @@ class SignUpCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        name.attributedPlaceholder = NSAttributedString(string: "Name",
-                                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
-        lastName.attributedPlaceholder = NSAttributedString(string: "Last name",
-                                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
-        email.attributedPlaceholder = NSAttributedString(string: "Email",
-                                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
-        password.attributedPlaceholder = NSAttributedString(string: "Password",
-                                                            attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
-        
-        checkPassword.attributedPlaceholder = NSAttributedString(string: "Confirm password",
-                                                            attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
-        
-        
+        name.attributedPlaceholder = makeAttributedPlaceholder(text: "Name")
+        lastName.attributedPlaceholder = makeAttributedPlaceholder(text: "Last Name")
+        email.attributedPlaceholder = makeAttributedPlaceholder(text: "Email")
+        password.attributedPlaceholder = makeAttributedPlaceholder(text: "Password")
+        checkPassword.attributedPlaceholder = makeAttributedPlaceholder(text: "Confirm password")
     }
 
 }
