@@ -61,20 +61,20 @@ class ContactsModel {
     }
     
     func addContact(id: String) {
-        NetworkLayer.sendAuthorizedPOSTRequest(
+        contactsSet.insert(id)
+        NetworkLayer.sendAuthorizedGETRequest(
             module: BackendModules.addContact,
             getParams: ["id":id],
-            body: [:],
-            complition: userFindCallback
+            complition: contactsCallback
         )
     }
     
     func removeContact(id: String) {
-        NetworkLayer.sendAuthorizedPOSTRequest(
+        contactsSet.remove(id)
+        NetworkLayer.sendAuthorizedGETRequest(
             module: BackendModules.deleteContact,
             getParams: ["id":id],
-            body: [:],
-            complition: userFindCallback
+            complition: contactsCallback
         )
     }
     

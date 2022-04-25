@@ -30,6 +30,7 @@ class ContactsTableViewCell: RoundedCellWithShadow {
             addButton.setTitle("Remove", for: .normal)
             dataSource?.addContact(id: id)
         }
+        isContact = !isContact
     }
     
     var id = ApplicationGlobals.undefinedUserId;

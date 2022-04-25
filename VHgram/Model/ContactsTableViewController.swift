@@ -16,6 +16,7 @@ class ContactsTableViewController: UITableViewController,  UISearchResultsUpdati
         tableView.separatorInset =  UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.contentInsetAdjustmentBehavior = .always
         tableView.register(UINib(nibName: ContactsTableViewCell.reuseId, bundle: nil), forCellReuseIdentifier: ContactsTableViewCell.reuseId)
         dataModel.contactsViewDelegate = tableView
         
@@ -52,6 +53,7 @@ class ContactsTableViewController: UITableViewController,  UISearchResultsUpdati
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ContactsTableViewCell.reuseId, for: indexPath) as! ContactsTableViewCell
+        cell.dataSource = dataModel
         if (resultSearchController.isActive) {
             cell.fillCell(
                 contact: dataModel.filteredContact(index: indexPath.row),

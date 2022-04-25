@@ -42,7 +42,45 @@ class NetworkLayer {
         NetworkLayer.sendPOSTRequest(
             module: module,
             getParams: params,
-            body: body, complition: complition, emptyCallback: emptyCallback)
+            body: body,
+            complition: complition,
+            emptyCallback: emptyCallback
+        )
+    }
+    
+    static func sendGETRequest(module: String, getParams: Dictionary<String, Any>, complition: @escaping (Any?)->(), emptyCallback: Bool = false) {
+        let url = URL(string: ApplicationGlobals.baseServerURL + "?module=" + module + "&" + getParams.urlEncode())!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data,
+                let response = response as? HTTPURLResponse,
+                error == nil else {
+                return
+            }
+            guard (200 ... 299) ~= response.statusCode else {
+                return
+            }
+            if !data.isEmpty {
+                let responseString = String(data: data, encoding: .utf8)
+                let dataDict = serialize(text: responseString!)
+                complition(dataDict)
+            } else if emptyCallback {
+                complition([:])
+            }
+        }
+        task.resume()
+    }
+    
+    static func sendAuthorizedGETRequest(module: String, getParams: Dictionary<String, Any>, complition: @escaping (Any?)->(), emptyCallback: Bool = false) {
+        var params = getParams
+        params["hash"] = AuthModel.GetInstance().token
+        NetworkLayer.sendGETRequest(
+            module: module,
+            getParams: params,
+            complition: complition,
+            emptyCallback: emptyCallback
+        )
     }
     
     static func loadImage(relativePath: String, img: UIImageView) {

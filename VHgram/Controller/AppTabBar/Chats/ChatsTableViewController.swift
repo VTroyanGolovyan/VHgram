@@ -24,6 +24,7 @@ class ChatsTableViewController: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: ChatTableViewCell.reuseId, bundle: nil), forCellReuseIdentifier: ChatTableViewCell.reuseId)
+        tableView.contentInsetAdjustmentBehavior = .always
         dataModel.chatsViewDelegate = tableView
         self.navigationItem.title = TabsSettings.chatsTabName
         self.navigationController?.navigationBar.backgroundColor = UIColor.white
