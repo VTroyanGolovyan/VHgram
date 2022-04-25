@@ -16,7 +16,6 @@ class ChatsModel: EventFollower {
     
     public init() {
         refetchData()
-        PollingWorker.followEventByType(e_type: EventType.NewMessage, follower: self)
     }
     
     func Count() -> Int {
@@ -61,4 +60,11 @@ class ChatsModel: EventFollower {
         refetchData()
     }
     
+    func followEvents() {
+        PollingWorker.followEventByType(e_type: EventType.NewMessage, follower: self)
+    }
+    
+    func unfollowEvents() {
+        PollingWorker.unfollowEvents(e_type: EventType.NewMessage)
+    }
 }

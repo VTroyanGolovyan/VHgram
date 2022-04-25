@@ -48,11 +48,17 @@ class PollingWorker {
         }
     }
     
-    public static func followEventByType(e_type: EventType,  follower: EventFollower) {
+    public static func followEventByType(e_type: EventType, follower: EventFollower) {
         if followers.keys.contains(e_type.rawValue) {
             followers[e_type.rawValue]?.append(follower)
         } else {
             followers[e_type.rawValue] = [follower]
+        }
+    }
+    
+    public static func unfollowEvents(e_type: EventType) {
+        if followers.keys.contains(e_type.rawValue) {
+            followers.removeValue(forKey: e_type.rawValue)
         }
     }
 }

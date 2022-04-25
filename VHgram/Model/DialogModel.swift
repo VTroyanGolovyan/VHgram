@@ -16,10 +16,6 @@ class DialogModel: EventFollower {
     var dialogName:String = ""
     var messages: [[String:String]] = []
     
-    public init() {
-        PollingWorker.followEventByType(e_type: EventType.NewMessage, follower: self)
-    }
-    
     func messagesCnt() -> Int {
         return messages.count
     }
@@ -68,4 +64,13 @@ class DialogModel: EventFollower {
     func eventHandle(event: [String : String]) {
         refetchData()
     }
+    
+    func followEvents() {
+        PollingWorker.followEventByType(e_type: EventType.NewMessage, follower: self)
+    }
+    
+    func unfollowEvents() {
+        PollingWorker.unfollowEvents(e_type: EventType.NewMessage)
+    }
+    
 }

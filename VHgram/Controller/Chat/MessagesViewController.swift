@@ -87,6 +87,7 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        dialogModel.followEvents()
         dialogModel.refetchData()
     }
     
@@ -99,6 +100,7 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
 
 extension MessagesViewController: MessagesViewControllerDelegate {
     func switchAppTabBar() {
+        dialogModel.unfollowEvents()
         let app = AppTabBarViewController.storyBoardInstance()
         if app != nil {
             self.view.insertSubview((app?.view)!, at: 1)
