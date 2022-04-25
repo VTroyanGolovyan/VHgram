@@ -53,7 +53,9 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
         inputField.layer.borderColor = UIColor.lightGray.cgColor
         
         inputField.attributedPlaceholder = makeAttributedPlaceholder(text: DialogPlaceholders.inputMessage)
-        
+        inputField.layer.borderWidth = 1.0
+        inputField.layer.cornerRadius = CGFloat(CustomSettings.cornerRadius)
+        inputField.layer.masksToBounds = true
         dialogModel.refetchData()
     }
     
