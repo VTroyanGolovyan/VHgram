@@ -11,6 +11,7 @@ class SettingsViewController: UIViewController {
 
     var delegate: AppTabBarViewControllerDelegate?
     
+    @IBOutlet weak var btn: UIButton!
     @IBAction func signOut(_ sender: Any) {
         AuthModel.signOut()
         delegate?.switchSignInController()
@@ -21,6 +22,8 @@ class SettingsViewController: UIViewController {
         self.navigationItem.title = "Settings"
         self.navigationController?.navigationBar.backgroundColor = UIColor.white
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.darkGray]
+        btn.layer.cornerRadius = 8
+        btn.layer.masksToBounds = true
     }
 
 }

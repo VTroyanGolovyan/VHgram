@@ -55,6 +55,13 @@ class AppTabBarViewController: UITabBarController {
         tabBar.layer.shadowColor =  UIColor.gray.cgColor
         tabBar.layer.shadowOpacity = 0.8
         tabBar.layer.shadowRadius = 4
+        tabBar.selectionIndicatorImage = UIImage().createSelectionIndicator(color: CustomColors.red, size: CGSize(width: tabBar.frame.width/CGFloat(tabBar.items!.count), height: tabBar.frame.height), lineHeight: 2.0)
+        /* to make it always white */
+        let appearance = UITabBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .white
+        tabBar.standardAppearance = appearance
+        tabBar.scrollEdgeAppearance = tabBar.standardAppearance
     }
     
     private func configureTabBarItem(id: Int, imageSystemName: String, itemName: String) {

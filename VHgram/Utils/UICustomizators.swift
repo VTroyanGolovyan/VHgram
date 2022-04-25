@@ -26,3 +26,14 @@ class RoundedCellWithShadow: UITableViewCell {
         self.layer.borderColor = UIColor.lightGray.cgColor
     }
 }
+
+extension UIImage {
+    func createSelectionIndicator(color: UIColor, size: CGSize, lineHeight: CGFloat) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        color.setFill()
+        UIRectFill(CGRect(origin: CGPoint(x: size.width / 4,y :size.height - 12), size: CGSize(width: size.width / 2, height: lineHeight)))
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
+    }
+}

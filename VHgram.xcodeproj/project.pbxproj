@@ -20,6 +20,7 @@
 		AA44E15B2814E43E003FE693 /* DialogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA44E1592814E43E003FE693 /* DialogTableViewCell.swift */; };
 		AA44E15C2814E43E003FE693 /* DialogTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA44E15A2814E43E003FE693 /* DialogTableViewCell.xib */; };
 		AA5A4FA82815DC280015DBD8 /* UICustomizators.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A4FA72815DC280015DBD8 /* UICustomizators.swift */; };
+		AA5A4FAE28161C540015DBD8 /* UIAppGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A4FAD28161C540015DBD8 /* UIAppGlobals.swift */; };
 		AA66A5CA280FD04600C7D9F7 /* Polling.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA66A5C9280FD04600C7D9F7 /* Polling.swift */; };
 		AA71CF54280EECA600A9907E /* ContactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA71CF53280EECA600A9907E /* ContactsModel.swift */; };
 		AA71CF56280EECB100A9907E /* DialogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA71CF55280EECB100A9907E /* DialogModel.swift */; };
@@ -77,6 +78,7 @@
 		AA44E1592814E43E003FE693 /* DialogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogTableViewCell.swift; sourceTree = "<group>"; };
 		AA44E15A2814E43E003FE693 /* DialogTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DialogTableViewCell.xib; sourceTree = "<group>"; };
 		AA5A4FA72815DC280015DBD8 /* UICustomizators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICustomizators.swift; sourceTree = "<group>"; };
+		AA5A4FAD28161C540015DBD8 /* UIAppGlobals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAppGlobals.swift; sourceTree = "<group>"; };
 		AA66A5C9280FD04600C7D9F7 /* Polling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Polling.swift; sourceTree = "<group>"; };
 		AA71CF53280EECA600A9907E /* ContactsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsModel.swift; sourceTree = "<group>"; };
 		AA71CF55280EECB100A9907E /* DialogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogModel.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				AA44E1572814D89E003FE693 /* ApplicationGlobals.swift */,
+				AA5A4FAD28161C540015DBD8 /* UIAppGlobals.swift */,
 			);
 			path = GlobalSettings;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 				AAC35B3B28024E69007ABDBE /* SlideCollectionViewCell.swift in Sources */,
 				AA8DC6E9280770580036FCDE /* ChatsTableViewController.swift in Sources */,
 				AA44E1582814D89E003FE693 /* ApplicationGlobals.swift in Sources */,
+				AA5A4FAE28161C540015DBD8 /* UIAppGlobals.swift in Sources */,
 				AA44E15228142D64003FE693 /* MessagesViewController.swift in Sources */,
 				AA264C7D281230D70014CA3B /* ProfileModel.swift in Sources */,
 				AA264C8C2812E0250014CA3B /* CollectionsExtensions.swift in Sources */,
