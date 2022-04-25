@@ -10,8 +10,6 @@ import UIKit
 class SlideCollectionViewCell: UICollectionViewCell {
     static let reuseId = "SlideCollectionViewCell"
     
-    var delegate: LoginViewControllerDelegate?
-    
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var label: UILabel!
@@ -25,6 +23,8 @@ class SlideCollectionViewCell: UICollectionViewCell {
             AuthModel.signIn(login: login!, password: password!)
         }
     }
+    
+    var delegate: LoginViewControllerDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()

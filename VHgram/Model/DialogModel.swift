@@ -9,13 +9,12 @@ import Foundation
 import UIKit
 
 class DialogModel {
+    
     var dialogMessagesDelegate: UITableView?
     var dialogNameDelegate: UILabel?
     var dialogName:String = ""
     
-    var messages = [
-        ["id":"9","senderid":"5","sender":"Katya ;)","message":"you","attachments":"","send_time":"13-35","avatar":""]
-    ]
+    var messages: [[String:String]] = []
     
     func messagesCnt() -> Int {
         return messages.count
@@ -36,8 +35,13 @@ class DialogModel {
         DispatchQueue.main.async { [self] in
             dialogNameDelegate?.text = dialogName
             dialogMessagesDelegate?.reloadData()
-            let indexPath = IndexPath(row: messages.count - 1, section: 0)
-            dialogMessagesDelegate?.scrollToRow(at: indexPath, at: .bottom, animated: true)
+            if messages.count > 0 {
+                let indexPath = IndexPath(row: messages.count - 1, section: 0)
+                dialogMessagesDelegate?.scrollToRow(at: indexPath, at: .bottom, animated: true)
+                
+                
+            }
         }
     }
+    
 }

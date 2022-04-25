@@ -55,8 +55,6 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
         dialogModel.refetchData()
     }
     
- 
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dialogModel.messagesCnt();
     }
