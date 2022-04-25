@@ -12,8 +12,8 @@ class DialogModel {
     
     var dialogMessagesDelegate: UITableView?
     var dialogNameDelegate: UILabel?
-    var dialogName:String = ""
     
+    var dialogName:String = ""
     var messages: [[String:String]] = []
     
     func messagesCnt() -> Int {
@@ -25,7 +25,12 @@ class DialogModel {
     }
     
     func refetchData() {
-        NetworkLayer.sendAuthorizedPOSTRequest(module: "getdialog", getParams: ["dialog":ApplicationGlobals.activeDialog], body: [:], complition: dialogsRequestCallback)
+        NetworkLayer.sendAuthorizedPOSTRequest(
+            module: BackendModules.getDialog,
+            getParams: ["dialog": ApplicationGlobals.activeDialog],
+            body: [:],
+            complition: dialogsRequestCallback
+        )
     }
     
     private func dialogsRequestCallback(response: Any) {
@@ -38,8 +43,6 @@ class DialogModel {
             if messages.count > 0 {
                 let indexPath = IndexPath(row: messages.count - 1, section: 0)
                 dialogMessagesDelegate?.scrollToRow(at: indexPath, at: .bottom, animated: true)
-                
-                
             }
         }
     }

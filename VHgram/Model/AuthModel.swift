@@ -13,6 +13,7 @@ class AuthModel {
     static var loginDelegate: LoginViewControllerDelegate?
     static var labelDelegate: UILabel?
     static var regLabelDelegate: UILabel?
+    
     var username: String?
     var token: String?
     var avatarURL: String?
@@ -36,11 +37,14 @@ class AuthModel {
     
     static func signIn(login: String,  password: String) {
         NetworkLayer.sendPOSTRequest(
-            module: "login",
+            module: BackendModules.signIn,
             getParams: [:],
-            body: ["gmail": login,
-                   "password": password
-                  ], complition: signInCallback)
+            body: [
+                "gmail": login,
+                "password": password
+            ],
+            complition: signInCallback
+        )
     }
     
     static private func signInCallback(response: Any?) {
@@ -81,7 +85,7 @@ class AuthModel {
     
     static func signUp(name: String, lastName: String, login: String,  password: String, checkPassword: String) {
         NetworkLayer.sendPOSTRequest(
-            module: "reg",
+            module: BackendModules.signUp,
             getParams: [:],
             body: [
                 "name": name,

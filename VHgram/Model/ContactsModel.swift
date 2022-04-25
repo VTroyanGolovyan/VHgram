@@ -30,7 +30,12 @@ class ContactsModel {
     }
     
     func filter(search: String) {
-        NetworkLayer.sendAuthorizedPOSTRequest(module: "find", getParams: [:], body: ["text":search], complition: userFindCallback)
+        NetworkLayer.sendAuthorizedPOSTRequest(
+            module: BackendModules.findUsers,
+            getParams: [:],
+            body: ["text": search],
+            complition: userFindCallback
+        )
     }
     
     func GetContact(index: Int) -> Dictionary<String, String> {
@@ -42,7 +47,20 @@ class ContactsModel {
     }
     
     func refetchData() {
-        NetworkLayer.sendAuthorizedPOSTRequest(module: "contacts", getParams: [:], body: [:], complition: contactsRequestCallback)
+        NetworkLayer.sendAuthorizedPOSTRequest(
+            module: BackendModules.getContacts,
+            getParams: [:],
+            body: [:],
+            complition: contactsRequestCallback
+        )
+    }
+    
+    func addContact(id: String) {
+        
+    }
+    
+    func removeContact(id: String) {
+        
     }
     
     private func contactsRequestCallback(response: Any) {
@@ -62,7 +80,7 @@ class ContactsModel {
         let array = response as? [[String:Any]]
         if let arrayData = array?.getStringsDictArray() {
             for user in arrayData {
-                    filtered.append(user)
+                filtered.append(user)
             }
             if contactsViewDelegate != nil {
                 DispatchQueue.main.async { [self] in

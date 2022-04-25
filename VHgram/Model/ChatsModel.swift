@@ -24,7 +24,12 @@ class ChatsModel: EventFollower {
     }
     
     func referchData() {
-        NetworkLayer.sendAuthorizedPOSTRequest(module: "getuserdialogs", getParams: [:], body: [:], complition: chatsRequestCallback)
+        NetworkLayer.sendAuthorizedPOSTRequest(
+            module: BackendModules.getDialogs,
+            getParams: [:],
+            body: [:],
+            complition: chatsRequestCallback
+        )
     }
     
     func GetChat(index: Int) -> Dictionary<String, String> {

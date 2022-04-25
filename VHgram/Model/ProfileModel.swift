@@ -27,8 +27,11 @@ class ProfileModel {
     
     func refetchData() {
         NetworkLayer.sendAuthorizedPOSTRequest(
-            module: "getuserinfo",
-            getParams: ["id":String(self.uid)], body: [:], complition: profileFetchCallback)
+            module: BackendModules.getUserInfo,
+            getParams: ["id": String(self.uid)],
+            body: [:],
+            complition: profileFetchCallback
+        )
     }
     
     private func profileFetchCallback(response: Any) {
