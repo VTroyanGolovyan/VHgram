@@ -20,7 +20,6 @@ class DialogTableViewCell: RoundedCellWithShadow {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     func fillCell(data: [String:String]) {

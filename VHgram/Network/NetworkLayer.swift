@@ -13,7 +13,7 @@ class NetworkLayer {
     public static var baseServerURL: String = "http://194.87.236.128/VHchat-Server/server/";
     public static var baseImageServerURL: String = "http://194.87.236.128/VHchat-Server/image_server/";
     
-    static func sendPOSTRequest(module: String, getParams: Dictionary<String, Any>, body: Dictionary<String, Any>, complition: @escaping (Any?)->()) {
+    static func sendPOSTRequest(module: String, getParams: Dictionary<String, Any>, body: Dictionary<String, Any>, complition: @escaping (Any?)->(), emptyCallback: Bool = false) {
         let url = URL(string: baseServerURL + "?module=" + module + "&" + getParams.urlEncode())!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -23,34 +23,29 @@ class NetworkLayer {
             guard let data = data,
                 let response = response as? HTTPURLResponse,
                 error == nil else {
-                print("error", error ?? "Unknown error")
                 return
             }
-
             guard (200 ... 299) ~= response.statusCode else {
-                print("statusCode should be 2xx, but is \(response.statusCode)")
-                print("response = \(response)")
                 return
             }
-
             if !data.isEmpty {
                 let responseString = String(data: data, encoding: .utf8)
                 let dataDict = serialize(text: responseString!)
                 complition(dataDict)
+            } else if emptyCallback {
+                complition([:])
             }
-            
-            
         }
         task.resume()
     }
     
-    static func sendAuthorizedPOSTRequest(module: String, getParams: Dictionary<String, Any>, body: Dictionary<String, Any>, complition: @escaping (Any?)->()) {
+    static func sendAuthorizedPOSTRequest(module: String, getParams: Dictionary<String, Any>, body: Dictionary<String, Any>, complition: @escaping (Any?)->(), emptyCallback: Bool = false) {
         var params = getParams
         params["hash"] = AuthModel.GetInstance().token
         NetworkLayer.sendPOSTRequest(
             module: module,
             getParams: params,
-            body: body, complition: complition)
+            body: body, complition: complition, emptyCallback: emptyCallback)
     }
     
     static func loadImage(relativePath: String, img: UIImageView) {
@@ -91,8 +86,10 @@ class NetworkLayer {
     
     static private func filePath(forKey key: String) -> URL? {
         let fileManager = FileManager.default
-        guard let documentURL = fileManager.urls(for: .documentDirectory,
-                                                in: FileManager.SearchPathDomainMask.userDomainMask).first else { return nil }
+        guard let documentURL = fileManager.urls(
+            for: .documentDirectory,
+            in: FileManager.SearchPathDomainMask.userDomainMask
+        ).first else { return nil }
         
         return documentURL.appendingPathComponent(key + ".png")
     }

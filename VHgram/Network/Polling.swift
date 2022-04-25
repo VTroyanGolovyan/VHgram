@@ -21,7 +21,9 @@ class PollingWorker {
     
     public static func runPolling() {
         DispatchQueue.global().async {
-            pollingRequest()
+            if !followers.isEmpty {
+                pollingRequest()
+            }
             DispatchQueue.global().asyncAfter(deadline: .now() + 0.5) {
                 PollingWorker.runPolling()
             }

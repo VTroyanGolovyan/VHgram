@@ -15,7 +15,7 @@ class ChatsModel: EventFollower {
     ]
     
     public init() {
-        referchData()
+        refetchData()
         PollingWorker.followEventByType(e_type: EventType.NewMessage, follower: self)
     }
     
@@ -23,7 +23,7 @@ class ChatsModel: EventFollower {
         return chats.count
     }
     
-    func referchData() {
+    func refetchData() {
         NetworkLayer.sendAuthorizedPOSTRequest(
             module: BackendModules.getDialogs,
             getParams: [:],
@@ -58,7 +58,7 @@ class ChatsModel: EventFollower {
     }
     
     func eventHandle(event: [String:String]) {
-        referchData()
+        refetchData()
     }
     
 }

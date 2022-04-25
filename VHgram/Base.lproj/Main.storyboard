@@ -96,16 +96,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eio-mx-wri">
                                 <rect key="frame" x="0.0" y="861" width="428" height="65"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Message" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H5r-hw-amw">
-                                        <rect key="frame" x="8" y="4" width="359" height="34"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="XEP-ph-zJ2"/>
-                                        </constraints>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Vs-Hx-aHI">
                                         <rect key="frame" x="375" y="4" width="45" height="34"/>
                                         <constraints>
@@ -124,13 +114,33 @@
                                             <action selector="sendBtn:" destination="Dgh-0m-KQt" eventType="touchUpInside" id="NNT-pv-dD7"/>
                                         </connections>
                                     </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Message" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H5r-hw-amw">
+                                        <rect key="frame" x="8" y="4" width="359" height="34"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="XEP-ph-zJ2"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="typing" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDk-nz-5kB">
+                                        <rect key="frame" x="37" y="38" width="32" height="13"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="2rw-Sw-mKd"/>
+                                    <constraint firstItem="oDk-nz-5kB" firstAttribute="top" secondItem="H5r-hw-amw" secondAttribute="bottom" id="6iG-jR-Jbu"/>
+                                    <constraint firstAttribute="bottom" secondItem="oDk-nz-5kB" secondAttribute="bottom" constant="14" id="EDI-To-Cpt"/>
                                     <constraint firstItem="8Vs-Hx-aHI" firstAttribute="top" secondItem="Eio-mx-wri" secondAttribute="top" constant="4" id="JxQ-vP-f9D"/>
                                     <constraint firstAttribute="trailing" secondItem="8Vs-Hx-aHI" secondAttribute="trailing" constant="8" id="LyB-1t-rjL"/>
                                     <constraint firstItem="8Vs-Hx-aHI" firstAttribute="leading" secondItem="H5r-hw-amw" secondAttribute="trailing" constant="8" symbolic="YES" id="Rkq-jJ-gIT"/>
+                                    <constraint firstItem="oDk-nz-5kB" firstAttribute="leading" secondItem="Eio-mx-wri" secondAttribute="leading" constant="37" id="Ugy-0S-0cX"/>
                                     <constraint firstItem="8Vs-Hx-aHI" firstAttribute="leading" secondItem="H5r-hw-amw" secondAttribute="trailing" constant="8" symbolic="YES" id="Xep-Kg-sCh"/>
                                     <constraint firstItem="8Vs-Hx-aHI" firstAttribute="top" secondItem="Eio-mx-wri" secondAttribute="top" constant="4" id="fvP-ma-QVZ"/>
                                     <constraint firstItem="H5r-hw-amw" firstAttribute="top" secondItem="Eio-mx-wri" secondAttribute="top" constant="4" id="w2a-05-xsX"/>

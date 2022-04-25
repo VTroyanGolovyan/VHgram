@@ -16,4 +16,7 @@ class BackendModules {
     static let findUsers: String = "find"
     static let getUserInfo: String = "getuserinfo"
     static let getContacts: String = "contacts"
+    static let dialogsController: String = "dialogescontroller"
+    static let addContact: String = "addcontact"
+    static let deleteContact: String = "deletecontact"
 }

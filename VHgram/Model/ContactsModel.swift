@@ -11,6 +11,7 @@ import UIKit
 class ContactsModel {
     var contactsViewDelegate:UITableView?
     
+    var contactsSet: Set<String> = []
     var contacts:[[String:String]] = [
     ]
     
@@ -55,18 +56,42 @@ class ContactsModel {
         )
     }
     
+    func isUserContact(id: String) -> Bool {
+        return contactsSet.contains(id)
+    }
+    
     func addContact(id: String) {
-        
+        NetworkLayer.sendAuthorizedPOSTRequest(
+            module: BackendModules.addContact,
+            getParams: ["id":id],
+            body: [:],
+            complition: userFindCallback
+        )
     }
     
     func removeContact(id: String) {
-        
+        NetworkLayer.sendAuthorizedPOSTRequest(
+            module: BackendModules.deleteContact,
+            getParams: ["id":id],
+            body: [:],
+            complition: userFindCallback
+        )
+    }
+    
+    func contactsCallback(response: Any) {
+        refetchData()
     }
     
     private func contactsRequestCallback(response: Any) {
         let array = response as? [[String:Any]]
         if let arrayData = array?.getStringsDictArray() {
             contacts = arrayData
+            contactsSet = []
+            for contact in contacts {
+                if let id = contact["id"] {
+                    contactsSet.insert(id)
+                }
+            }
             if contactsViewDelegate != nil {
                 DispatchQueue.main.async { [self] in
                     contactsViewDelegate?.reloadData()

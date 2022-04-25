@@ -20,6 +20,10 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
     }
     @IBOutlet weak var inputField: UITextField!
     @IBAction func sendBtn(_ sender: Any) {
+        if let text = inputField.text {
+            dialogModel.sendMessage(text:  text)
+            inputField.text = ""
+        }
     }
     
     @IBOutlet weak var messagesTable: UITableView!

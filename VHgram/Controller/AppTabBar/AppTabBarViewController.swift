@@ -35,8 +35,6 @@ class AppTabBarViewController: UITabBarController {
             UINavigationController(rootViewController: settings)],
             animated: true)
         
-        PollingWorker.runPolling()
-        
         
         configureTabBar()
         

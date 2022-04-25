@@ -56,7 +56,7 @@ class ChatsTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        dataModel.referchData()
+        dataModel.refetchData()
     }
 
 }

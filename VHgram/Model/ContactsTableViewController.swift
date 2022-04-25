@@ -53,9 +53,11 @@ class ContactsTableViewController: UITableViewController,  UISearchResultsUpdati
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ContactsTableViewCell.reuseId, for: indexPath) as! ContactsTableViewCell
         if (resultSearchController.isActive) {
-            cell.fillCell(contact: dataModel.filteredContact(index: indexPath.row))
+            cell.fillCell(
+                contact: dataModel.filteredContact(index: indexPath.row),
+                isContact: dataModel.isUserContact(id: dataModel.filteredContact(index: indexPath.row)["id"] ?? "-1"))
         } else {
-            cell.fillCell(contact: dataModel.GetContact(index: indexPath.row))
+            cell.fillCell(contact: dataModel.GetContact(index: indexPath.row), isContact: dataModel.isUserContact(id: dataModel.GetContact(index: indexPath.row)["id"] ?? "-1"))
         }
         return cell
     }

@@ -10,6 +10,7 @@ import UIKit
 class ContactsTableViewCell: RoundedCellWithShadow {
 
     static let reuseId = "ContactsTableViewCell"
+    weak var dataSource: ContactsModel?
     
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var name: UILabel!
@@ -22,11 +23,18 @@ class ContactsTableViewCell: RoundedCellWithShadow {
     }
     
     @IBAction func addContact(_ sender: Any) {
-        addButton.setTitle("Remove", for: .normal)
+        if isContact {
+            addButton.setTitle("Add", for: .normal)
+            dataSource?.removeContact(id: id)
+        } else {
+            addButton.setTitle("Remove", for: .normal)
+            dataSource?.addContact(id: id)
+        }
     }
     
-    var id = -1;
+    var id = "-1";
     var imgageUrl = ""
+    var isContact = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,12 +44,15 @@ class ContactsTableViewCell: RoundedCellWithShadow {
         super.setSelected(selected, animated: animated)
     }
     
-    func fillCell(contact: Dictionary<String, String>) {
+    func fillCell(contact: Dictionary<String, String>, isContact: Bool) {
         name.text = contact["name"]! + " " + contact["second_name"]!
         status.text = contact["status"] == "0" ? "" : contact["status"]
         imgageUrl = contact["avatar"] ?? ""
         online.text = contact["online"] == "0" ? "Offline" : "Online"
         self.img.image = UIImage(named: "profile-user")
+        self.isContact = isContact
+        self.id = contact["id"] ?? "-1"
+        addButton.setTitle(isContact ? "Remove" : "Add", for: .normal)
         NetworkLayer.loadImage(relativePath: imgageUrl, img: self.img)
     }
     

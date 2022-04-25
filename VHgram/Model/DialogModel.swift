@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class DialogModel {
+class DialogModel: EventFollower {
     
     var dialogMessagesDelegate: UITableView?
     var dialogNameDelegate: UILabel?
@@ -16,12 +16,26 @@ class DialogModel {
     var dialogName:String = ""
     var messages: [[String:String]] = []
     
+    public init() {
+        PollingWorker.followEventByType(e_type: EventType.NewMessage, follower: self)
+    }
+    
     func messagesCnt() -> Int {
         return messages.count
     }
     
     func getMessage(id: Int) -> [String:String] {
         return messages[id]
+    }
+    
+    func sendMessage(text: String) {
+        NetworkLayer.sendAuthorizedPOSTRequest(
+            module: BackendModules.dialogsController,
+            getParams: ["type":"send", "dialog": ApplicationGlobals.activeDialog],
+            body: ["message":text],
+            complition: sendMsgCallback,
+            emptyCallback: true
+        )
     }
     
     func refetchData() {
@@ -47,4 +61,11 @@ class DialogModel {
         }
     }
     
+    func sendMsgCallback(response: Any) {
+        refetchData()
+    }
+    
+    func eventHandle(event: [String : String]) {
+        refetchData()
+    }
 }
