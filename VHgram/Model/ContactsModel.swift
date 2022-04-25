@@ -10,6 +10,7 @@ import UIKit
 
 class ContactsModel {
     var contactsViewDelegate:UITableView?
+    var tabBarDelegate: AppTabBarViewController?
     
     var contactsSet: Set<String> = []
     var contacts:[[String:String]] = [
@@ -80,6 +81,19 @@ class ContactsModel {
     
     func contactsCallback(response: Any) {
         refetchData()
+    }
+    
+    func createDialog(id: String) {
+        NetworkLayer.sendAuthorizedPOSTRequest(
+            module: BackendModules.dialogsController,
+            getParams: ["type":"create"],
+            body: ["users": "[" + id + "]"],
+            complition: dialogsCallback
+        )
+    }
+    
+    func dialogsCallback(response: Any) {
+        
     }
     
     private func contactsRequestCallback(response: Any) {

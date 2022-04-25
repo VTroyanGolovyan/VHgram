@@ -17,9 +17,15 @@ class ContactsTableViewCell: RoundedCellWithShadow {
     @IBOutlet weak var status: UILabel!
     @IBOutlet weak var online: UILabel!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var newDialogBtn: UIButton!
     
     @IBAction func newDialogBtn(_ sender: Any) {
-        
+        if dialogDone {
+            return
+        }
+        dialogDone = true
+        newDialogBtn.setTitle("Done", for: .normal)
+        dataSource?.createDialog(id: id)
     }
     
     @IBAction func addContact(_ sender: Any) {
@@ -36,7 +42,7 @@ class ContactsTableViewCell: RoundedCellWithShadow {
     var id = ApplicationGlobals.undefinedUserId;
     var imgageUrl = ""
     var isContact = false
-    
+    var dialogDone = false
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -54,6 +60,7 @@ class ContactsTableViewCell: RoundedCellWithShadow {
         self.isContact = isContact
         self.id = contact["id"] ?? ApplicationGlobals.undefinedUserId
         addButton.setTitle(isContact ? "Remove" : "Add", for: .normal)
+        newDialogBtn.setTitle("New dialog", for: .normal)
         NetworkLayer.loadImage(relativePath: imgageUrl, img: self.img)
     }
     

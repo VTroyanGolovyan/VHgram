@@ -76,6 +76,7 @@
                 <outlet property="addButton" destination="EhR-9D-81l" id="r9a-Gs-VS5"/>
                 <outlet property="img" destination="gYv-qE-1JR" id="Okt-9l-ykz"/>
                 <outlet property="name" destination="hRz-e8-IWP" id="Q0p-CY-2g2"/>
+                <outlet property="newDialogBtn" destination="ecS-Hl-dJu" id="mvj-4E-LyR"/>
                 <outlet property="online" destination="aZ8-Jq-i0f" id="xeB-ft-5gB"/>
                 <outlet property="status" destination="UrZ-dF-tYv" id="tvc-Wm-gVZ"/>
             </connections>

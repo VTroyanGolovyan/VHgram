@@ -15,10 +15,11 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        model.profileDelegate = self
         self.navigationItem.title = TabsSettings.profileTabName
         self.navigationController?.navigationBar.backgroundColor = UIColor.white
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.darkGray]
+        
+        model.profileDelegate = self
         model.refetchData()
     }
 

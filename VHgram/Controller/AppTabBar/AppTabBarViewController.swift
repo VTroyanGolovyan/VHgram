@@ -9,10 +9,10 @@ import UIKit
 
 class AppTabBarViewController: UITabBarController {
     
-    
     var chatsTableViewController: ChatsTableViewController = ChatsTableViewController()
     var contactsTableViewController: ContactsTableViewController = ContactsTableViewController()
-    
+    var settings = SettingsViewController()
+    var profile = ProfileViewController()
     
     static func storyBoardInstance() -> AppTabBarViewController? {
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AppTabBarViewController") as? AppTabBarViewController
@@ -21,13 +21,8 @@ class AppTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         chatsTableViewController.viewDelegate = self
-        let settings = SettingsViewController()
         settings.delegate = self
-        
-        let profile = ProfileViewController()
-        
         self.setViewControllers([
             UINavigationController(rootViewController: chatsTableViewController),
             UINavigationController(rootViewController: contactsTableViewController),
@@ -43,7 +38,7 @@ class AppTabBarViewController: UITabBarController {
         configureTabBarItem(id: 2, imageSystemName: TabsSettings.profileTabIcon, itemName: TabsSettings.profileTabName)
         configureTabBarItem(id: 3, imageSystemName: TabsSettings.settingsTabIcon, itemName: TabsSettings.settingsTabName)
         
-        self.loadViewIfNeeded()
+        self.loadView()
     }
 
     private func configureTabBar() {
