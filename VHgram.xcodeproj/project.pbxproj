@@ -22,6 +22,8 @@
 		AA5A4FA82815DC280015DBD8 /* UICustomizators.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A4FA72815DC280015DBD8 /* UICustomizators.swift */; };
 		AA5A4FAE28161C540015DBD8 /* UIAppGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A4FAD28161C540015DBD8 /* UIAppGlobals.swift */; };
 		AA5A4FB0281621550015DBD8 /* ServerModules.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A4FAF281621550015DBD8 /* ServerModules.swift */; };
+		AA5A4FB228163C5E0015DBD8 /* UITabBarSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A4FB128163C5E0015DBD8 /* UITabBarSettings.swift */; };
+		AA5A4FB428163DA10015DBD8 /* PlaceholdersSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A4FB328163DA10015DBD8 /* PlaceholdersSettings.swift */; };
 		AA66A5CA280FD04600C7D9F7 /* Polling.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA66A5C9280FD04600C7D9F7 /* Polling.swift */; };
 		AA71CF54280EECA600A9907E /* ContactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA71CF53280EECA600A9907E /* ContactsModel.swift */; };
 		AA71CF56280EECB100A9907E /* DialogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA71CF55280EECB100A9907E /* DialogModel.swift */; };
@@ -81,6 +83,8 @@
 		AA5A4FA72815DC280015DBD8 /* UICustomizators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICustomizators.swift; sourceTree = "<group>"; };
 		AA5A4FAD28161C540015DBD8 /* UIAppGlobals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAppGlobals.swift; sourceTree = "<group>"; };
 		AA5A4FAF281621550015DBD8 /* ServerModules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerModules.swift; sourceTree = "<group>"; };
+		AA5A4FB128163C5E0015DBD8 /* UITabBarSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarSettings.swift; sourceTree = "<group>"; };
+		AA5A4FB328163DA10015DBD8 /* PlaceholdersSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholdersSettings.swift; sourceTree = "<group>"; };
 		AA66A5C9280FD04600C7D9F7 /* Polling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Polling.swift; sourceTree = "<group>"; };
 		AA71CF53280EECA600A9907E /* ContactsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsModel.swift; sourceTree = "<group>"; };
 		AA71CF55280EECB100A9907E /* DialogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogModel.swift; sourceTree = "<group>"; };
@@ -184,6 +188,8 @@
 			children = (
 				AA44E1572814D89E003FE693 /* ApplicationGlobals.swift */,
 				AA5A4FAD28161C540015DBD8 /* UIAppGlobals.swift */,
+				AA5A4FB128163C5E0015DBD8 /* UITabBarSettings.swift */,
+				AA5A4FB328163DA10015DBD8 /* PlaceholdersSettings.swift */,
 			);
 			path = GlobalSettings;
 			sourceTree = "<group>";
@@ -491,6 +497,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA5A4FB428163DA10015DBD8 /* PlaceholdersSettings.swift in Sources */,
 				AA71CF5B280EEE5500A9907E /* NetworkLayer.swift in Sources */,
 				AAC35B3628024807007ABDBE /* LoginViewController.swift in Sources */,
 				AA264C802812385F0014CA3B /* SettingsViewController.swift in Sources */,
@@ -504,6 +511,7 @@
 				AA264C7A28122E8B0014CA3B /* ProfileViewController.swift in Sources */,
 				AA264C84281259BC0014CA3B /* SignUpCollectionViewCell.swift in Sources */,
 				AA8DC6E628076FBF0036FCDE /* AppTabBarViewController.swift in Sources */,
+				AA5A4FB228163C5E0015DBD8 /* UITabBarSettings.swift in Sources */,
 				AA8DC6D4280621F50036FCDE /* ChatTableViewCell.swift in Sources */,
 				AAC35B3B28024E69007ABDBE /* SlideCollectionViewCell.swift in Sources */,
 				AA8DC6E9280770580036FCDE /* ChatsTableViewController.swift in Sources */,

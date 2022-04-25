@@ -42,7 +42,7 @@ class ChatTableViewCell: RoundedCellWithShadow {
         super.layoutSubviews()
         self.img.layer.cornerRadius = self.img.frame.size.width / 2
         self.img.layer.masksToBounds = true
-        self.newMsg.layer.cornerRadius = 5
+        self.newMsg.layer.cornerRadius = CGFloat(CustomSettings.cornerRadius)
         self.newMsg.layer.masksToBounds = true
     }
 }

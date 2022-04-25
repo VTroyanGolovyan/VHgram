@@ -9,11 +9,10 @@ class ContactsTableViewController: UITableViewController,  UISearchResultsUpdati
     override func viewDidLoad() {
        
         super.viewDidLoad()
+        
         tableView = UITableView(frame: self.view.frame)
         tableView.backgroundColor = .lightGray
-        
-        tableView.rowHeight = 80
-        
+        tableView.rowHeight = CGFloat(CustomSettings.contactsTableRowHeight)
         tableView.separatorInset =  UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         tableView.delegate = self
         tableView.dataSource = self
@@ -28,7 +27,8 @@ class ContactsTableViewController: UITableViewController,  UISearchResultsUpdati
                 return controller
             })()
         
-        self.navigationItem.title = "Contacts"
+        self.navigationItem.title = TabsSettings.contactsTabName
+        
         self.navigationController?.navigationBar.backgroundColor = UIColor.white
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.darkGray]
         
@@ -55,9 +55,9 @@ class ContactsTableViewController: UITableViewController,  UISearchResultsUpdati
         if (resultSearchController.isActive) {
             cell.fillCell(
                 contact: dataModel.filteredContact(index: indexPath.row),
-                isContact: dataModel.isUserContact(id: dataModel.filteredContact(index: indexPath.row)["id"] ?? "-1"))
+                isContact: dataModel.isUserContact(id: dataModel.filteredContact(index: indexPath.row)["id"] ?? ApplicationGlobals.undefinedUserId))
         } else {
-            cell.fillCell(contact: dataModel.GetContact(index: indexPath.row), isContact: dataModel.isUserContact(id: dataModel.GetContact(index: indexPath.row)["id"] ?? "-1"))
+            cell.fillCell(contact: dataModel.GetContact(index: indexPath.row), isContact: dataModel.isUserContact(id: dataModel.GetContact(index: indexPath.row)["id"] ?? ApplicationGlobals.undefinedUserId))
         }
         return cell
     }

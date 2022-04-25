@@ -17,11 +17,11 @@ func makeAttributedPlaceholder(text: String) -> NSAttributedString {
 class RoundedCellWithShadow: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.layer.cornerRadius = 8
+        self.layer.cornerRadius = CGFloat(CustomSettings.cornerRadius)
         self.layer.masksToBounds = true
         self.layer.shadowColor =  UIColor.gray.cgColor
-        self.layer.shadowOpacity = 0.8
-        self.layer.shadowRadius = 4
+        self.layer.shadowOpacity = Float(CustomSettings.shadowsOpacity)
+        self.layer.shadowRadius = CGFloat(CustomSettings.shadowsRadius)
         self.layer.borderWidth = CGFloat(1)
         self.layer.borderColor = UIColor.lightGray.cgColor
     }

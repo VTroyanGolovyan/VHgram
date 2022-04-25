@@ -19,10 +19,10 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Settings"
+        self.navigationItem.title = TabsSettings.settingsTabName
         self.navigationController?.navigationBar.backgroundColor = UIColor.white
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.darkGray]
-        btn.layer.cornerRadius = 8
+        btn.layer.cornerRadius = CGFloat(CustomSettings.cornerRadius)
         btn.layer.masksToBounds = true
     }
 

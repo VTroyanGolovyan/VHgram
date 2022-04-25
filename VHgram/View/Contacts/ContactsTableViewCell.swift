@@ -32,7 +32,7 @@ class ContactsTableViewCell: RoundedCellWithShadow {
         }
     }
     
-    var id = "-1";
+    var id = ApplicationGlobals.undefinedUserId;
     var imgageUrl = ""
     var isContact = false
     
@@ -51,7 +51,7 @@ class ContactsTableViewCell: RoundedCellWithShadow {
         online.text = contact["online"] == "0" ? "Offline" : "Online"
         self.img.image = UIImage(named: "profile-user")
         self.isContact = isContact
-        self.id = contact["id"] ?? "-1"
+        self.id = contact["id"] ?? ApplicationGlobals.undefinedUserId
         addButton.setTitle(isContact ? "Remove" : "Add", for: .normal)
         NetworkLayer.loadImage(relativePath: imgageUrl, img: self.img)
     }

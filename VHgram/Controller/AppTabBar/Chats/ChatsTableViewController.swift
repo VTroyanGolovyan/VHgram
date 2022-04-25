@@ -18,14 +18,14 @@ class ChatsTableViewController: UITableViewController {
         tableView = UITableView(frame: self.view.frame)
         tableView.backgroundColor = .lightGray
         
-        tableView.rowHeight = 80
+        tableView.rowHeight = CGFloat(CustomSettings.chatsTableRowHeight)
         self.tableView.allowsSelection = true
         tableView.separatorInset =  UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: ChatTableViewCell.reuseId, bundle: nil), forCellReuseIdentifier: ChatTableViewCell.reuseId)
         dataModel.chatsViewDelegate = tableView
-        self.navigationItem.title = "Chats"
+        self.navigationItem.title = TabsSettings.chatsTabName
         self.navigationController?.navigationBar.backgroundColor = UIColor.white
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.darkGray]
     }
@@ -38,7 +38,6 @@ class ChatsTableViewController: UITableViewController {
         return self.dataModel.Count()
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ChatTableViewCell.reuseId, for: indexPath) as! ChatTableViewCell
         cell.fillCell(chat: dataModel.GetChat(index: indexPath.row))

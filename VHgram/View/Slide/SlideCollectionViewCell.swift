@@ -28,8 +28,8 @@ class SlideCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        email.attributedPlaceholder = makeAttributedPlaceholder(text: "Email")
-        password.attributedPlaceholder = makeAttributedPlaceholder(text: "Password")
+        email.attributedPlaceholder = makeAttributedPlaceholder(text: SignInPlaceholders.login)
+        password.attributedPlaceholder = makeAttributedPlaceholder(text: SignInPlaceholders.password)
     }
 
 }

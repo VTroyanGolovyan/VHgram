@@ -38,10 +38,10 @@ class AppTabBarViewController: UITabBarController {
         
         configureTabBar()
         
-        configureTabBarItem(id: 0, imageSystemName: "mail.stack.fill", itemName: "Dialogs")
-        configureTabBarItem(id: 1, imageSystemName: "person.3.fill", itemName: "Contacts")
-        configureTabBarItem(id: 2, imageSystemName: "person.circle.fill", itemName: "Profile")
-        configureTabBarItem(id: 3, imageSystemName: "gearshape.fill", itemName: "Settings")
+        configureTabBarItem(id: 0, imageSystemName: TabsSettings.chatsTabIcon, itemName: TabsSettings.chatsTabName)
+        configureTabBarItem(id: 1, imageSystemName: TabsSettings.contactsTabIcon, itemName: TabsSettings.contactsTabName)
+        configureTabBarItem(id: 2, imageSystemName: TabsSettings.profileTabIcon, itemName: TabsSettings.profileTabName)
+        configureTabBarItem(id: 3, imageSystemName: TabsSettings.settingsTabIcon, itemName: TabsSettings.settingsTabName)
         
         self.loadViewIfNeeded()
     }
@@ -51,8 +51,8 @@ class AppTabBarViewController: UITabBarController {
         tabBar.tintColor = .darkGray
         tabBar.unselectedItemTintColor = .lightGray
         tabBar.layer.shadowColor =  UIColor.gray.cgColor
-        tabBar.layer.shadowOpacity = 0.8
-        tabBar.layer.shadowRadius = 4
+        tabBar.layer.shadowOpacity = Float(CustomSettings.shadowsOpacity)
+        tabBar.layer.shadowRadius = CGFloat(CustomSettings.shadowsRadius)
         tabBar.selectionIndicatorImage = UIImage().createSelectionIndicator(color: CustomColors.red, size: CGSize(width: tabBar.frame.width/CGFloat(tabBar.items!.count), height: tabBar.frame.height), lineHeight: 2.0)
         /* to make it always white */
         let appearance = UITabBarAppearance()

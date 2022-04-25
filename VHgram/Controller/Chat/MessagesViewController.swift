@@ -40,23 +40,26 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
         messagesTable.dataSource = self
         messagesTable.register(UINib(nibName: DialogTableViewCell.reuseId, bundle: nil), forCellReuseIdentifier: DialogTableViewCell.reuseId)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
-        self.inputField.delegate = self
-        
-        messagesTable.rowHeight = 90
+        messagesTable.rowHeight = CGFloat(CustomSettings.messagesTableRowHeight)
         dialogModel.dialogNameDelegate = dialogName
         dialogModel.dialogMessagesDelegate = messagesTable
         
         sendPanel.layer.shadowColor =  UIColor.gray.cgColor
-        sendPanel.layer.shadowOpacity = 0.8
-        sendPanel.layer.shadowRadius = 4
+        sendPanel.layer.shadowOpacity = Float(CustomSettings.shadowsOpacity)
+        sendPanel.layer.shadowRadius = CGFloat(CustomSettings.shadowsRadius)
         
+        self.inputField.delegate = self
+        fixInputsUnderKeyboard()
         inputField.layer.borderColor = UIColor.lightGray.cgColor
         
-        inputField.attributedPlaceholder = makeAttributedPlaceholder(text: "Message text")
+        inputField.attributedPlaceholder = makeAttributedPlaceholder(text: DialogPlaceholders.inputMessage)
+        
         dialogModel.refetchData()
+    }
+    
+    func fixInputsUnderKeyboard() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

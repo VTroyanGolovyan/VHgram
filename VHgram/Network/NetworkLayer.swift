@@ -9,12 +9,9 @@ import Foundation
 import UIKit
 
 class NetworkLayer {
-
-    public static var baseServerURL: String = "http://194.87.236.128/VHchat-Server/server/";
-    public static var baseImageServerURL: String = "http://194.87.236.128/VHchat-Server/image_server/";
     
     static func sendPOSTRequest(module: String, getParams: Dictionary<String, Any>, body: Dictionary<String, Any>, complition: @escaping (Any?)->(), emptyCallback: Bool = false) {
-        let url = URL(string: baseServerURL + "?module=" + module + "&" + getParams.urlEncode())!
+        let url = URL(string: ApplicationGlobals.baseServerURL + "?module=" + module + "&" + getParams.urlEncode())!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.allHTTPHeaderFields = ["Content-Type": "application/x-www-form-urlencoded"]
@@ -49,7 +46,7 @@ class NetworkLayer {
     }
     
     static func loadImage(relativePath: String, img: UIImageView) {
-        let urlString = baseServerURL + relativePath
+        let urlString = ApplicationGlobals.baseServerURL + relativePath
         let url = URL(string: urlString)
         createNeedFolders()
         DispatchQueue.global().async {
