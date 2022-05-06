@@ -25,10 +25,10 @@ class NetworkLayer {
             guard (200 ... 299) ~= response.statusCode else {
                 return
             }
-            if !data.isEmpty {
-                let responseString = String(data: data, encoding: .utf8)
-                let dataDict = serialize(text: responseString!)
-                complition(dataDict)
+            if !data.isEmpty,
+               let responseString = String(data: data, encoding: .utf8) {
+                let dataDict = serialize(text: responseString)
+                completion(dataDict)
             } else if emptyCallback {
                 complition([:])
             }
