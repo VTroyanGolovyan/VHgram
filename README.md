@@ -1,4 +1,4 @@
-# VHgram *x*
+# VHgram _x_
 My first ios experience
 VhGram - simple messager
 It was created as IOS client for my very old project:
